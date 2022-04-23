@@ -51,16 +51,15 @@
                             @else
                                 @can($menu->can)
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#navbar-third" data-bs-toggle="dropdown" data-bs-auto-close="outside"
-                                            role="button" aria-expanded="false">
+                                        <a class="nav-link dropdown-toggle" href="#navbar-third" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                                             <span class="nav-link-icon d-md-none d-lg-inline-block"> {!! $menu->icon !!} </span>
                                             <span class="nav-link-title"> {{ $menu->name }} </span>
                                         </a>
                                         <div class="dropdown-menu">
                                             @foreach ($menu->submenu as $submenu)
-                                            <a class="dropdown-item" href="{{ route($submenu->route) }}">
-                                                {{ $submenu->name }}
-                                            </a>
+                                                <a class="dropdown-item" href="{{ route($submenu->route) }}">
+                                                    {{ $submenu->name }}
+                                                </a>
                                             @endforeach
                                         </div>
                                     </li>

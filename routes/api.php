@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::resource('clients', App\Http\Controllers\API\ClientAPIController::class);
+
+
+Route::resource('compteurs', App\Http\Controllers\API\compteurAPIController::class);
+
+
+Route::resource('appartements', App\Http\Controllers\API\appartementAPIController::class);
