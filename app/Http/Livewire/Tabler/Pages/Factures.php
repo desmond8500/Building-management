@@ -4,12 +4,15 @@ namespace App\Http\Livewire\Tabler\Pages;
 
 use App\Models\Compteur;
 use App\Models\Facture;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Factures extends Component
 {
     use WithPagination;
+    use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
 
     public function updatingSearch()
@@ -32,13 +35,22 @@ class Factures extends Component
 
     public function store_facture()
     {
-        Facture::create([
+        $facture = Facture::create([
             'compteur_id' => $this->compteur_id,
             'montant' => $this->montant,
             'date' => $this->date,
             'facture' => $this->facture ?? '0',
             'numero' => $this->numero
         ]);
+
+        if ($this->facture) {
+            $dir = "factures/$facture->id";
+            $name = $this->facture->getClientOriginalName();
+            $this->facture->storeAs("public/$dir", $name);
+
+            $facture->facture = "$dir/$name";
+            $facture->save();
+        }
 
         $this->reset('compteur_id', 'montant', 'date', 'facture', 'numero');
     }
@@ -61,7 +73,16 @@ class Factures extends Component
         $facture->facture = $this->facture;
         $facture->numero = $this->numero;
 
-        $facture->save();
+        if ($this->facture) {
+            $dir = "factures/$facture->id";
+            Storage::disk('public')->deleteDirectory($dir);
+
+            $name = $this->facture->getClientOriginalName();
+            $this->facture->storeAs("public/$dir", $name);
+
+            $facture->facture = "$dir/$name";
+            $facture->save();
+        }
 
         $this->reset('facture_id', 'compteur_id', 'montant', 'date', 'facture', 'numero');
     }

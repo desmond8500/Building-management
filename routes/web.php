@@ -7,7 +7,6 @@ use App\Http\Livewire\Tabler\Pages\Clients;
 use App\Http\Livewire\Tabler\Pages\Compteurs;
 use App\Http\Livewire\Tabler\Pages\Factures;
 use App\Http\Livewire\Tabler\Pages\Profile;
-use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

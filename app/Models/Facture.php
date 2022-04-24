@@ -33,7 +33,8 @@ class Facture extends Model
         'compteur_id',
         'montant',
         'date',
-        'facture'
+        'facture',
+        'numero'
     ];
 
     /**
@@ -46,7 +47,8 @@ class Facture extends Model
         'compteur_id' => 'integer',
         'montant' => 'string',
         'date' => 'date',
-        'facture' => 'string'
+        'facture' => 'string',
+        'numero' => 'string'
     ];
 
     /**

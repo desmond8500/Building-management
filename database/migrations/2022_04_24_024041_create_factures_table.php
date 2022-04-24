@@ -19,7 +19,8 @@ class CreateFacturesTable extends Migration
             $table->integer('compteur_id');
             $table->string('montant');
             $table->date('date');
-            $table->string('facture');
+            $table->string('facture')->nullable();
+            $table->string('numero')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

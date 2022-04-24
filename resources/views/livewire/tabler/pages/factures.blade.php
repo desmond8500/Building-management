@@ -74,8 +74,9 @@
                                 <td>{{ $facture->montant }}</td>
                                 <td>{{ $facture->date->format('d-m-Y') }}</td>
                                 <td>
-                                    <div>{{ $facture->facture }}</div>
-                                    <div>{{ $facture->numero }}</div>
+                                    <div>
+                                        <a href="{{ "storage/$facture->facture" }}" target="blank">{{ $facture->numero }}</a>
+                                    </div>
                                 </td>
                                 <td>
                                     <button class="btn btn-outline-primary btn-icon" wire:click="edit_facture('{{ $facture->id }}')">
@@ -126,9 +127,10 @@
                     <input type="text" wire:model.defer="numero" class="form-control" placeholder="">
                 </div>
 
-                <button class="btn btn-secondary" wire:click="reinitialiser">Réinitialiser</button>
-                <button class="btn btn-primary" wire:click="store_facture">Valider</button>
-
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-secondary" wire:click="reinitialiser">Réinitialiser</button>
+                    <button class="btn btn-primary" wire:click="store_facture">Valider</button>
+                </div>
               </div>
             </div>
         </div>

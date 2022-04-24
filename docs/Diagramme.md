@@ -11,7 +11,8 @@ class Client{
 
 Client <-- Client_Appartement
 Appartement <-- Client_Appartement
-Appartement <-- Compteurs
+Appartement <-- Compteur
+Compteur <-- Facture
 
 class Appartement{
     string nom
@@ -20,18 +21,13 @@ class Appartement{
     string adresse
 }
 
-class Compteurs{
+class Compteur{
     int appartement_id
     string type
     string reference
     string ref_client
     string ref_compteur
     string adresse_technique
-}
-
-class Client_Appartement{
-    int appartement_id
-    int client_id
 }
 
 class Client_Appartement{
