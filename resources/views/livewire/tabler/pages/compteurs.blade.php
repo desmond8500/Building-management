@@ -119,6 +119,7 @@
                     <div class="mb-3 form-group col-md-4">
                         <label class="form-label">Appartement Associé</label>
                         <select wire:model.defer="appartement_id" class="form-control">
+                            <option value="1">Choisir un appartement</option>
                             @foreach ($apparts as $appart)
                                 <option value="{{ $appart->id }}">{{ $appart->nom }}</option>
                             @endforeach
