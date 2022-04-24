@@ -17,8 +17,8 @@ class CreateFacturesTable extends Migration
         Schema::create('factures', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('compteur_id');
-            $table->string('montant');
-            $table->date('date');
+            $table->decimal('montant',8,2);
+            $table->date('date')->nullable();
             $table->string('facture')->nullable();
             $table->string('numero')->nullable();
             $table->timestamps();

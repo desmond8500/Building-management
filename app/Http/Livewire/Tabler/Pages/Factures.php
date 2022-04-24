@@ -61,7 +61,7 @@ class Factures extends Component
         $this->compteur_id = $facture->compteur_id;
         $this->montant = $facture->montant;
         $this->date = $facture->date;
-        $this->facture = $facture->facture;
+        $this->facture = null;
         $this->numero = $facture->numero;
     }
     public function update_facture()
