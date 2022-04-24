@@ -5,6 +5,7 @@ use App\Http\Livewire\Tabler\Index;
 use App\Http\Livewire\Tabler\Pages\Appartements;
 use App\Http\Livewire\Tabler\Pages\Clients;
 use App\Http\Livewire\Tabler\Pages\Compteurs;
+use App\Http\Livewire\Tabler\Pages\Factures;
 use App\Http\Livewire\Tabler\Pages\Profile;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ Route::name('tabler.')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/clients', Clients::class)->name('clients');
     Route::get('/compteurs', Compteurs::class)->name('compteurs');
+    Route::get('/factures', Factures::class)->name('factures');
     Route::get('/appartements', Appartements::class)->name('appartements');
 });
 
@@ -37,3 +39,6 @@ Route::post( 'generator_builder/generate-from-file', '\InfyOm\GeneratorBuilder\C
 // Route::resource('clients', App\Http\Controllers\ClientController::class);
 // Route::resource('compteurs', App\Http\Controllers\compteurController::class);
 // Route::resource('appartements', App\Http\Controllers\appartementController::class);
+// Route::resource('factures', App\Http\Controllers\FactureController::class);
+
+

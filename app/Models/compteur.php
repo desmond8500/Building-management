@@ -18,14 +18,20 @@ class Compteur extends Model
     public $fillable = [
         'appartement_id',
         'type',
-        'reference'
+        'reference',
+        'ref_client',
+        'ref_compteur',
+        'adresse_technique',
     ];
 
     protected $casts = [
         'id' => 'integer',
         'appartement_id' => 'integer',
         'type' => 'string',
-        'reference' => 'string'
+        'reference' => 'string',
+        'ref_client' => 'string',
+        'ref_compteur' => 'string',
+        'adresse_technique' => 'string',
     ];
 
     public static $rules = [

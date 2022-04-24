@@ -16,3 +16,9 @@
         <span>Appartements</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('factures*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('factures.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Factures</span>
+    </a>
+</li>

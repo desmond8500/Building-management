@@ -26,3 +26,6 @@ Route::resource('compteurs', App\Http\Controllers\API\compteurAPIController::cla
 
 
 Route::resource('appartements', App\Http\Controllers\API\appartementAPIController::class);
+
+
+Route::resource('factures', App\Http\Controllers\API\FactureAPIController::class);
