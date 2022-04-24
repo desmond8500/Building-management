@@ -112,7 +112,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn me-auto" data-bs-dismiss="modal">Fermer</button>
-                    <button wire:click="store" class="btn btn-primary" data-bs-dismiss="modal">Ajouter le client</button>
+                    <button wire:click="store" class="btn btn-primary" data-bs-dismiss="modal">Ajouter le Client</button>
                 </div>
             </div>
         </div>

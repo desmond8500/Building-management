@@ -146,7 +146,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn me-auto" data-bs-dismiss="modal">Fermer</button>
-                    <button wire:click="store_appart" class="btn btn-primary" data-bs-dismiss="modal">Ajouter l'appartement</button>
+                    <button wire:click="store_appart" class="btn btn-primary" data-bs-dismiss="modal">Ajouter l'Appartement</button>
                 </div>
             </div>
         </div>
