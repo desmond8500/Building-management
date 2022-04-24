@@ -22,7 +22,7 @@ class Compteurs extends Component
     public function render()
     {
         return view('livewire.tabler.pages.compteurs', [
-            'compteurs' => Compteur::where('number', 'like', '%' . $this->search . '%')->paginate(10),
+            'compteurs' => Compteur::where('reference', 'like', '%' . $this->search . '%')->paginate(10),
             'apparts' => Appartement::all(),
         ])->extends('app.layout')->section('content');
     }

@@ -22,7 +22,7 @@ class Appartements extends Component
     public function render()
     {
         return view('livewire.tabler.pages.appartements',[
-            'appartements' => ModelsAppartement::where('name', 'like', '%' . $this->search . '%')->paginate(15),
+            'appartements' => ModelsAppartement::where('nom', 'like', '%' . $this->search . '%')->paginate(15),
         ])->extends('app.layout')->section('content');
     }
 
