@@ -16,7 +16,7 @@ class CreateCompteursTable extends Migration
     {
         Schema::create('compteurs', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('appartement_id')->constrained();
+            $table->foreignId('appartement_id')->constrained('appartements');
             $table->string('type');
             $table->string('reference');
             $table->timestamps();
