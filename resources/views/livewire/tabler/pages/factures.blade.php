@@ -99,7 +99,7 @@
               <div class="card-header">
                 <h3 class="card-title">Ajouter une facture</h3>
               </div>
-              <div class="card-body">
+              <div class="card-body bg-light text-dark">
                 <div class="mb-3">
                     <label class="form-label">Compteurs</label>
                     <select wire:model.defer="compteur_id" class="form-control">
@@ -109,14 +109,15 @@
                         @endforeach
                     </select>
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Montant</label>
-                    <input type="number" wire:model.defer="montant" class="form-control" placeholder="">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Date</label>
-                    <input type="date" wire:model.defer="date" class="form-control" placeholder="">
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Montant</label>
+                        <input type="number" wire:model.defer="montant" class="form-control" placeholder="">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Date</label>
+                        <input type="date" wire:model.defer="date" class="form-control" placeholder="">
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Facture</label>
