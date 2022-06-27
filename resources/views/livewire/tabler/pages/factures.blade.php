@@ -38,7 +38,7 @@
                                         <select wire:model.defer="compteur_id" class="form-control">
                                             <option value="0">Sélectionnez un compteur</option>
                                             @foreach ( $compteurs as $compteur)
-                                            <option value="{{ $compteur->id }}">{{ $compteur->appartement->nom }}</option>
+                                            <option value="{{ $compteur->id }}">{{ $compteur->appartement->nom }} </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -105,7 +105,7 @@
                     <select wire:model.defer="compteur_id" class="form-control">
                         <option value="0">Sélectionnez un compteur</option>
                         @foreach ( $compteurs as $compteur)
-                            <option value="{{ $compteur->id }}">{{ $compteur->appartement->nom }}</option>
+                            <option value="{{ $compteur->id }}">{{ $compteur->appartement->nom }} - {{ $compteur->type }}</option>
                         @endforeach
                     </select>
                 </div>
