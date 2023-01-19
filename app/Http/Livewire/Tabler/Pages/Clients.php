@@ -61,4 +61,9 @@ class Clients extends Component
         $client = Client::find($this->client_id);
         $client->delete();
     }
+
+    public function gotoClient($client_id)
+    {
+        return redirect()->route("tabler.client",["client_id"=>$client_id]);
+    }
 }

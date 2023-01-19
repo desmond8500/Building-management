@@ -1,14 +1,19 @@
 <?php
 
+use App\Http\Controllers\ContratController;
 use App\Http\Livewire\Material\Index as MaterialIndex;
 use App\Http\Livewire\Tabler\Index;
 use App\Http\Livewire\Tabler\Pages\Appartements;
+use App\Http\Livewire\Tabler\Pages\Client;
 use App\Http\Livewire\Tabler\Pages\Clients;
 use App\Http\Livewire\Tabler\Pages\Compteurs;
+use App\Http\Livewire\Tabler\Pages\Contrats;
 use App\Http\Livewire\Tabler\Pages\Factures;
 use App\Http\Livewire\Tabler\Pages\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
 
 Route::get('/', Index::class)->name('index');
 Route::get('mat', MaterialIndex::class)->name('material.index');
@@ -17,9 +22,31 @@ Route::get('mat', MaterialIndex::class)->name('material.index');
 Route::name('tabler.')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/clients', Clients::class)->name('clients');
+    Route::get('/client/{client_id}', Client::class)->name('client');
     Route::get('/compteurs', Compteurs::class)->name('compteurs');
     Route::get('/factures', Factures::class)->name('factures');
     Route::get('/appartements', Appartements::class)->name('appartements');
+    Route::get('/contrats', Contrats::class)->name('contrats');
+
+    Route::get('contrat_pdf/{client_id}', [ContratController::class, 'show_contrat'])->name('contrat_pdf');
+
+    // Route::get('contrat_pdf/{client_id}', function () {
+    //     $data = [
+    //         $home = [
+    //             "address" => "Villa n° 180, Cité HILAL",
+    //             "debut_contrat" => '01 janvier 2023'
+    //         ],
+    //         $client = [
+
+    //         ]
+    //     ];
+
+    //     $pdf = Pdf::loadView('contrats.contrat_pdf', $data);
+
+    //     return $pdf->stream();
+    //     // return $pdf->download('Contrats.pdf');
+    // })->name('contrat_pdf');
+
 });
 
 Auth::routes();

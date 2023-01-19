@@ -37,12 +37,10 @@
                             @if ($client_id == $client->id)
                             <div class="row p-2">
                                 <div class="form-group col-md-8">
-                                    <label class="form-label">Nom du client </label>
+                                    <label class="form-label">Prénom du client </label>
                                     <input type="text" wire:model.defer="prenom" class="form-control" placeholder="Prénom">
-                                    {{--
-                                </div>
-                                <div class="form-group col-md-8"> --}}
-                                    <label class="form-label">Nom du client </label>
+
+                                    <label class="form-label mt-2">Nom du client </label>
                                     <input type="text" wire:model.defer="nom" class="form-control" placeholder="nom">
                                 </div>
                                 <div class="col-md-4">
@@ -64,8 +62,8 @@
                             </div>
                             @else
                             <th>{{ $key+1 }}</th>
-                            <td>{{ ucfirst($client->prenom) }}</td>
-                            <td>{{ ucfirst($client->nom) }}</td>
+                            <td wire:click="gotoClient('{{ $client->id }}')" type="button">{{ ucfirst($client->prenom) }}</td>
+                            <td wire:click="gotoClient('{{ $client->id }}')" type="button">{{ ucfirst($client->nom) }}</td>
                             <td>{{ ucfirst($client->genre) }}</td>
                             <td>
                                 <button class="btn btn-outline-primary btn-icon" wire:click="edit('{{ $client->id }}')">
