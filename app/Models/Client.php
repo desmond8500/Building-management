@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -19,13 +20,9 @@ class Client extends Model
 {
     use SoftDeletes;
 
-
     public $table = 'clients';
-    
 
     protected $dates = ['deleted_at'];
-
-
 
     public $fillable = [
         'prenom',
@@ -51,8 +48,18 @@ class Client extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+    /**
+     * Get all of the appart for the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function apparts(): HasManyThrough
+    {
+        return $this->hasManyThrough(Appartement::class, ClientAppartement::class, 'client_id');
+    }
+
+
 }
