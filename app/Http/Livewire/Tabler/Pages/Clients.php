@@ -29,6 +29,7 @@ class Clients extends Component
 
     public $prenom, $nom, $genre = 'homme';
     public $client_id;
+
     public function store()
     {
         Client::create([
@@ -65,5 +66,22 @@ class Clients extends Component
     public function gotoClient($client_id)
     {
         return redirect()->route("tabler.client",["client_id"=>$client_id]);
+    }
+
+    public function initClients()
+    {
+        $clients = (object) array(
+            ['prenom' => 'desmond', 'nom' => 'Miles', 'genre' => 1],
+            ['prenom' => 'Sam', 'nom' => 'fisher', 'genre' => 1],
+            ['prenom' => 'alastor', 'nom' => 'maugrey', 'genre' => 1],
+        );
+
+        foreach ($clients as $client) {
+            Client::create([
+                'prenom' => $client['prenom'],
+                'nom' => $client['nom'],
+                'genre' => $client['genre'],
+            ]);
+        }
     }
 }

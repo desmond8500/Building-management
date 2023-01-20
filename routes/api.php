@@ -29,3 +29,6 @@ Route::resource('appartements', App\Http\Controllers\API\appartementAPIControlle
 
 
 Route::resource('factures', App\Http\Controllers\API\FactureAPIController::class);
+
+
+Route::resource('contrats', App\Http\Controllers\API\ContratAPIController::class);

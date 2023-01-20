@@ -65,4 +65,22 @@ class Appartements extends Component
         $instance = ModelsAppartement::find($this->appart_id);
         $instance->delete();
     }
+
+    public function initAppart()
+    {
+        $apparts = (object) array(
+            ['nom' => 'Appartement 1', 'numero' => 'A1', 'niveau' => 1, 'adresse'=>'yarakh'],
+            ['nom' => 'Appartement 2', 'numero' => 'A2', 'niveau' => 1, 'adresse'=>'yarakh'],
+            ['nom' => 'Appartement 3', 'numero' => 'A3', 'niveau' => 1, 'adresse'=>'yarakh'],
+        );
+
+        foreach ($apparts as $appart) {
+            appartement::create([
+                'nom' => $appart['nom'],
+                'numero' => $appart['numero'],
+                'niveau' => $appart['niveau'],
+                'adresse' => $appart['adresse'],
+            ]);
+        }
+    }
 }

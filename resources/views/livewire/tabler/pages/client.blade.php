@@ -26,7 +26,7 @@
 
     <div class="col-md-8">
         @foreach ($client->apparts() as $appartement)
-            <div>{{ $appartement->nom }}</div>
+            <div>{{ $appartement->nom }} ff</div>
         @endforeach
 
         @dump($client->apparts())

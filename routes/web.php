@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContratController;
+use App\Http\Controllers\PdfController;
 use App\Http\Livewire\Material\Index as MaterialIndex;
 use App\Http\Livewire\Tabler\Index;
 use App\Http\Livewire\Tabler\Pages\Appartements;
@@ -28,7 +29,7 @@ Route::name('tabler.')->group(function () {
     Route::get('/appartements', Appartements::class)->name('appartements');
     Route::get('/contrats', Contrats::class)->name('contrats');
 
-    Route::get('contrat_pdf/{client_id}', [ContratController::class, 'show_contrat'])->name('contrat_pdf');
+    Route::get('contrat_pdf/{client_id}', [PdfController::class, 'show_contrat'])->name('contrat_pdf');
 
     // Route::get('contrat_pdf/{client_id}', function () {
     //     $data = [
@@ -68,3 +69,6 @@ Route::post( 'generator_builder/generate-from-file', '\InfyOm\GeneratorBuilder\C
 // Route::resource('factures', App\Http\Controllers\FactureController::class);
 
 
+
+
+// Route::resource('contrats', App\Http\Controllers\ContratController::class);

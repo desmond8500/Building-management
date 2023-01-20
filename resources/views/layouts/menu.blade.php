@@ -22,3 +22,9 @@
         <span>Factures</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('contrats*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('contrats.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Contrats</span>
+    </a>
+</li>
