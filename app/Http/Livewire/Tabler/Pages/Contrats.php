@@ -10,7 +10,7 @@ use Livewire\Component;
 class Contrats extends Component
 {
     public $client_id, $appartement_id, $montant;
-    public $contrat_id, $selected;
+    public $contrat_id, $selected = array();
 
     public function render()
     {
@@ -19,6 +19,22 @@ class Contrats extends Component
             'clients' => Client::all(),
             'appartements' => Appartement::all(),
         ])->extends('app.layout')->section('content');
+    }
+
+    public function selectContract($contract_id)
+    {
+        if (empty($this->selected)) {
+            array_push($this->selected, $contract_id);
+        }else{
+            foreach ($this->selected as $selected) {
+                if ($selected == $contract_id) {
+                    unset($selected);
+                } else {
+                    array_push($this->selected, $contract_id);
+                }
+            }
+        }
+
     }
 
     public function add_contract()

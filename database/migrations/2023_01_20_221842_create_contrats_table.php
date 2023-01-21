@@ -19,7 +19,7 @@ class CreateContratsTable extends Migration
             $table->foreignId('appartement_id');
             $table->date('debut')->nullable();
             $table->date('fin')->nullable();
-            $table->date('montant');
+            $table->string('montant');
             $table->timestamps();
             $table->softDeletes();
         });

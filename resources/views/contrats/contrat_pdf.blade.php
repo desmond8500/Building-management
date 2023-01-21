@@ -5,7 +5,7 @@
 
     <div class="text-justify">
         Entre: Le bailleur <b>M. Momar DIAGNE</b>, <b>PC n° 327812 du 09 Juin 1999</b> et Le preneur,
-        <b> @if ($client->genre == 'Homme') M. @else Mme @endif {{ $client->prenom }} {{ $client->nom}} </b>,
+        <b> @if ($client->genre == 'homme') M. @else Mme @endif {{ $client->prenom }} {{ strtoupper($client->nom) }} </b>,
         CI N° <b>{{ $client->ci }}</b>, délivrée le<b> {{ $client->delivre ?? "00 00 0000" }}</b> qui s’engage à prendre en location
         les locaux dont la désignation suit : <b>{{ $appart->adresse }}</b> ,<b>{{ $appart->nom ?? 'Appartement 11' }}</b>,
         sans qu’il soit nécessaire de désigner les lieux plus amplement, les connaissant pour les avoir visité.
@@ -13,11 +13,11 @@
 
     <div class="text-justify">
         Cette location qui prendra effet le <b>01 janvier {{ $annee }}</b> est usage d’habitation. Elle est consentie au prix
-        de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel et d’avance au plus tard le 05 de chaque mois.
+        de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel et d’avance au plus tard le <b>05 de chaque mois</b>.
     </div>
 
     <div class="text-justify mt-1">
-        A cela il faut ajouter la taxe d’enregistrement (timbres compris) sur location de {{ number_format($taxe, 0, ',', ' ') }} Francs CFA à verser à la
+        A cela il faut ajouter la taxe d’enregistrement (timbres compris) sur location de <b>{{ number_format($taxe, 0, ',', ' ') }} Francs CFA</b> à verser à la
         signature du présent contrat.
     </div>
 

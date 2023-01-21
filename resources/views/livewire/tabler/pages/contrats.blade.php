@@ -54,7 +54,7 @@
     <div class="row">
 
         <div class="col-md-5">
-
+            @dump($selected)
         </div>
 
         <div class="col-md-7">
@@ -62,6 +62,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">#</th>
                             <th scope="col">Client</th>
                             <th scope="col">Appartement</th>
                             <th scope="col">Montant</th>
@@ -108,6 +109,9 @@
                             </tr>
                         @else
                             <tr class="">
+                                <td scope="row">
+                                    <input type="checkbox" wire:click="selectContract('{{ $contrat->id }}')">
+                                </td>
                                 <td scope="row">
                                     {{ $contrat->client->prenom }} {{ $contrat->client->nom }}
                                 </td>

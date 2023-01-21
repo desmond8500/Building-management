@@ -43,6 +43,12 @@ class Facture{
     string numero
 }
 
+class Contrat{
+    int client_id
+    int appartement_id
+    decimal montant
+}
+
 
 
 
