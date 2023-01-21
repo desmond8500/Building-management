@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -33,11 +34,6 @@ class Client extends Model
         'delivre',
     ];
 
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'id' => 'integer',
         'prenom' => 'string',
@@ -47,14 +43,15 @@ class Client extends Model
         'delivre' => 'string',
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
     public static $rules = [
 
     ];
+
+
+    public function contrat(): HasOne
+    {
+        return $this->hasOne(Contrat::class);
+    }
 
 
 
