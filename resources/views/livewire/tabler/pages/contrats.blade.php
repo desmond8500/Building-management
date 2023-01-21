@@ -54,7 +54,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            @dump($selected)
+            {{-- @dump($selected) --}}
         </div>
 
         <div class="col-md-7">
