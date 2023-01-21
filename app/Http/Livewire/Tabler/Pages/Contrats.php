@@ -23,18 +23,17 @@ class Contrats extends Component
 
     public function selectContract($contract_id)
     {
-        if (empty($this->selected)) {
-            array_push($this->selected, $contract_id);
-        }else{
-            foreach ($this->selected as $selected) {
-                if ($selected == $contract_id) {
-                    unset($selected);
-                } else {
-                    array_push($this->selected, $contract_id);
-                }
+        $contrat = Contrat::find($contract_id);
+        array_push($this->selected, $contrat);
+    }
+    public function remove_contract($contrat_id)
+    {
+        foreach ($this->selected as $key => $selected) {
+            if ($key == $contrat_id) {
+                unset($this->selected[$key]);
+            } else {
             }
         }
-
     }
 
     public function add_contract()

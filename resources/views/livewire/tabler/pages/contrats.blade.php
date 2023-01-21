@@ -54,7 +54,17 @@
     <div class="row">
 
         <div class="col-md-5">
-            {{-- @dump($selected) --}}
+            @foreach ($selected as $key => $item)
+                <div class="card p-2 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="card-title">{{ $item['client']['prenom'] }} {{ $item['client']['nom'] }}</div>
+                        <div>
+                            <button class="btn btn-danger" wire:click="remove_contract('{{ $key }}')">Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+            @endforeach
         </div>
 
         <div class="col-md-7">
@@ -110,7 +120,7 @@
                         @else
                             <tr class="">
                                 <td scope="row">
-                                    <input type="checkbox" wire:click="selectContract('{{ $contrat->id }}')">
+                                    <button class="btn btn-primary" wire:click="selectContract('{{ $contrat->id }}')">add</button>
                                 </td>
                                 <td scope="row">
                                     {{ $contrat->client->prenom }} {{ $contrat->client->nom }}

@@ -20,7 +20,7 @@ class PdfController extends Controller
             "appart" => $appartement,
             "contrat" => $contrat,
             "annee" => date('Y'),
-            'taxe' => $contrat->montant*0.24 + 2000,
+            'taxe' => $contrat->montant*0.24 + 6000,
             'caution' => $contrat->montant*3,
             // 'jour' => date('d F Y')
         );
