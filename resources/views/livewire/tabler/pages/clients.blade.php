@@ -33,6 +33,8 @@
                             <th class="text-nowrap">Prénom</th>
                             <th class="text-nowrap">Nom</th>
                             <th class="text-nowrap">Genre</th>
+                            <th class="text-nowrap">CI</th>
+                            <th class="text-nowrap">Délivré</th>
                             <th width="20px" class="text-nowrap">Action</th>
                         </tr>
                     </thead>
@@ -41,21 +43,28 @@
                         <tr>
                             @if ($client_id == $client->id)
                             <div class="row p-2">
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-md-6 mb-3">
                                     <label class="form-label">Prénom du client </label>
                                     <input type="text" wire:model.defer="prenom" class="form-control" placeholder="Prénom">
-
-                                    <label class="form-label mt-2">Nom du client </label>
+                                </div>
+                                <div class="form-group col-md-6 mb-3">
+                                    <label class="form-label">Nom du client </label>
                                     <input type="text" wire:model.defer="nom" class="form-control" placeholder="nom">
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Genre</label>
-                                        <select wire:model.defer="genre" class="form-control">
-                                            <option value="homme">Homme</option>
-                                            <option value="femme">Femme</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group col-md-4 mb-3">
+                                    <label class="form-label">Numéro d'identité</label>
+                                    <input type="text" wire:model.defer="ci" class="form-control" placeholder="Numéro de carte d'identité">
+                                </div>
+                                <div class="form-group col-md-4 mb-3">
+                                    <label class="form-label">Délivrance</label>
+                                    <input type="text" wire:model.defer="delivre" class="form-control" placeholder="Date et lieu de délivrance">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Genre</label>
+                                    <select wire:model="genre" class="form-control">
+                                        <option value="homme">Homme</option>
+                                        <option value="femme">Femme</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-12 mt-2">
                                     <div class="float-right">
@@ -69,6 +78,8 @@
                             <th>{{ $key+1 }}</th>
                             <td wire:click="gotoClient('{{ $client->id }}')" type="button">{{ ucfirst($client->prenom) }}</td>
                             <td wire:click="gotoClient('{{ $client->id }}')" type="button">{{ ucfirst($client->nom) }}</td>
+                            <td>{{ $client->ci }}</td>
+                            <td>{{ $client->delivre }}</td>
                             <td>{{ ucfirst($client->genre) }}</td>
                             <td>
                                 <button class="btn btn-outline-primary btn-icon" wire:click="edit('{{ $client->id }}')">
@@ -95,22 +106,28 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body row">
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-6 mb-3">
                         <label class="form-label">Prénom du client </label>
                         <input type="text" wire:model.defer="prenom" class="form-control" placeholder="Prénom">
                     </div>
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-6 mb-3">
                         <label class="form-label">Nom du client </label>
                         <input type="text" wire:model.defer="nom" class="form-control" placeholder="nom">
                     </div>
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <label class="form-label">Genre</label>
-                            <select wire:model="genre" class="form-control">
-                                <option value="homme">Homme</option>
-                                <option value="femme">Femme</option>
-                            </select>
-                        </div>
+                    <div class="form-group col-md-4 mb-3">
+                        <label class="form-label">Numéro d'identité</label>
+                        <input type="text" wire:model.defer="ci" class="form-control" placeholder="Numéro de carte d'identité">
+                    </div>
+                    <div class="form-group col-md-4 mb-3">
+                        <label class="form-label">Délivrance</label>
+                        <input type="text" wire:model.defer="delivre" class="form-control" placeholder="Date et lieu de délivrance">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Genre</label>
+                        <select wire:model="genre" class="form-control">
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">

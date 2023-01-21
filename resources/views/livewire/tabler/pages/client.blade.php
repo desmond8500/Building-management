@@ -25,46 +25,7 @@
     </div>
 
     <div class="col-md-8">
-        @foreach ($client->apparts() as $appartement)
-            <div>{{ $appartement->nom }} ff</div>
-        @endforeach
 
-        @dump($client->apparts())
     </div>
-
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Launch demo modal
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ajouter un appartement</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form class="fieldset">
-                <div class="mb-3">
-                    <label class="form-label">Appartement</label>
-                    <select wire:model.defer="appart_id" class="form-select">
-                        <option value="0">Sélectionner un appartement</option>
-                        @foreach ($apparts as $appart)
-                            <option value="{{ $appart->id }}">{{ $appart->nom }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" wire:click="addAppart()">Affecter l'appartement</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
 </div>

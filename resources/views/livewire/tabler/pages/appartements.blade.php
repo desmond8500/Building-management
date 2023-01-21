@@ -41,16 +41,16 @@
                         @foreach ($appartements as $key => $appartement)
                         <tr>
                             @if ($appart_id == $appartement->id)
-                            <div class="row p-2">
-                                <div class="form-group col-md-8">
+                            <div class="row p-3">
+                                <div class="form-group col-md-8 mb-3">
                                     <label class="form-label">Nom l'appartement </label>
-                                    <input type="text" wire:model.defer="name" class="form-control" placeholder="Nom de l'appartement">
+                                    <input type="text" wire:model.defer="nom" class="form-control" placeholder="Nom de l'appartement">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-4 mb-3">
                                     <label class="form-label">Numéro </label>
-                                    <input type="text" wire:model.defer="number" class="form-control" placeholder="Numérp">
+                                    <input type="text" wire:model.defer="numero" class="form-control" placeholder="Numéro">
                                 </div>
-                                <div class="mb-3 form-group col-md-6">
+                                <div class="mb-3 form-group col-md-4">
                                     <label class="form-label">Niveau</label>
                                     <select wire:model.defer="niveau" class="form-control">
                                         <option>Sous sol</option>
@@ -62,28 +62,18 @@
                                         <option>Etage 4</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="mb-3">
-                                        <label class="form-label">Statut</label>
-                                        <select wire:model.defer="status" class="form-control">
-                                            <option value="libre">Libre</option>
-                                            @foreach ($clients as $client)
-                                            <option value="{{ $client->id }}">{{ $client->firstname }} {{ $client->lastname }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
+
+                                <div class="form-group col-md-8">
                                     <label class="form-label">Adresse </label>
-                                    <input type="text" wire:model.defer="address" class="form-control" placeholder="Adresse">
+                                    <input type="text" wire:model.defer="adresse" class="form-control" placeholder="Adresse">
                                 </div>
                                 <div class="mb-3 form-group col-md-12">
                                     <label class="form-label">Description</label>
-                                    <textarea wire:model.defer="description" class="form-control" placeholder="description" cols="30"
+                                    <textarea wire:model.defer="description" class="form-control" placeholder="Description" cols="30"
                                         rows="3"></textarea>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="float-right">
+                                    <div class="d-flex justify-content-evenly">
                                         <button wire:click="$set('appart_id', 0)" class="btn btn-secondary">Fermer</button>
                                         <button wire:click="delete" class="btn btn-danger">Supprimer</button>
                                         <button wire:click="update" class="btn btn-primary">Modifier</button>

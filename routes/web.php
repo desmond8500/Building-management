@@ -29,7 +29,7 @@ Route::name('tabler.')->group(function () {
     Route::get('/appartements', Appartements::class)->name('appartements');
     Route::get('/contrats', Contrats::class)->name('contrats');
 
-    Route::get('contrat_pdf/{client_id}', [PdfController::class, 'show_contrat'])->name('contrat_pdf');
+    Route::get('contrat_pdf/{contrat_id}', [PdfController::class, 'show_contrat'])->name('contrat_pdf');
 
     // Route::get('contrat_pdf/{client_id}', function () {
     //     $data = [

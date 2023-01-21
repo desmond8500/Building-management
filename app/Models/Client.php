@@ -28,7 +28,9 @@ class Client extends Model
     public $fillable = [
         'prenom',
         'nom',
-        'genre'
+        'genre',
+        'ci',
+        'delivre',
     ];
 
     /**
@@ -40,7 +42,9 @@ class Client extends Model
         'id' => 'integer',
         'prenom' => 'string',
         'nom' => 'string',
-        'genre' => 'string'
+        'genre' => 'string',
+        'ci' => 'string',
+        'delivre' => 'string',
     ];
 
     /**

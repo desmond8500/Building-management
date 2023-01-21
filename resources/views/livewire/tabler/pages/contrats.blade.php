@@ -53,37 +53,79 @@
 
     <div class="row">
 
-        <div class="col-md-7">
+        <div class="col-md-5">
 
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-7">
             <div class="table-responsive bg-white  mt-2">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Client</th>
                             <th scope="col">Appartement</th>
-                            <th style="width: 10px">Action</th>
+                            <th scope="col">Montant</th>
+                            <th style="width: 10px">Editer</th>
+                            <th style="width: 10px">Contrat</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($contrats as $contrat)
+                        @if ($contrat_id == $contrat->id)
+                            <tr class="">
+                                <td colspan="4">
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Client</label>
+                                            <select class="form-select" wire:model.defer="client_id">
+                                                <option value="0">Sélectionnez un client</option>
+                                                @foreach ($clients as $client)
+                                                <option value="{{ $client->id }}">{{ $client->prenom }} {{ $client->nom }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Appartement</label>
+                                            <select class="form-select" wire:model.defer="appartement_id">
+                                                <option value="0">Sélectionnez un Appartement</option>
+                                                @foreach ($appartements as $appartement)
+                                                <option value="{{ $appartement->id }}">{{ $appartement->nom }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Montant</label>
+                                            <input type="text" class="form-control" wire:model.defer="montant" placeholder="montant">
+                                        </div>
+
+                                        <div class="text-end">
+                                            <button type="button" class="btn btn-secondary" wire:click="$set('contrat_id', 0)">Fermer</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                                wire:click="update_contract()">Modifier</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @else
                             <tr class="">
                                 <td scope="row">
                                     {{ $contrat->client->prenom }} {{ $contrat->client->nom }}
                                 </td>
                                 <td>{{ $contrat->appartement->nom }}</td>
+                                <td>{{ number_format($contrat->montant, 0, ',', ' ') }} F</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('tabler.contrat_pdf',['client_id', $client->id]) }}" target="_blank">PDF</a>
+                                    <a class="btn btn-sm btn-primary" wire:click="edit_contract('{{ $contrat->id }}')">Editer</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('tabler.contrat_pdf',['contrat_id'=>$contrat->id]) }}" target="_blank">PDF</a>
                                 </td>
                             </tr>
+                        @endif
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 
 </div>

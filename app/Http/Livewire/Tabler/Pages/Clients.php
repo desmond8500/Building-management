@@ -27,7 +27,7 @@ class Clients extends Component
         ])->extends('app.layout')->section('content');
     }
 
-    public $prenom, $nom, $genre = 'homme';
+    public $prenom, $nom, $genre = 'homme', $ci, $delivre;
     public $client_id;
 
     public function store()
@@ -35,7 +35,9 @@ class Clients extends Component
         Client::create([
             'prenom' => $this->prenom,
             'nom' => $this->nom,
-            'genre' => $this->genre
+            'genre' => $this->genre,
+            'ci' => $this->ci,
+            'delivre' => $this->delivre,
         ]);
         $this->reset('prenom', 'nom');
     }
@@ -54,6 +56,8 @@ class Clients extends Component
         $client->prenom = $this->prenom;
         $client->nom = $this->nom;
         $client->genre = $this->genre;
+        $client->ci = $this->ci;
+        $client->delivre = $this->delivre;
         $client->save();
         $this->reset('prenom', 'nom', 'client_id');
     }
@@ -71,9 +75,9 @@ class Clients extends Component
     public function initClients()
     {
         $clients = (object) array(
-            ['prenom' => 'desmond', 'nom' => 'Miles', 'genre' => 1],
-            ['prenom' => 'Sam', 'nom' => 'fisher', 'genre' => 1],
-            ['prenom' => 'alastor', 'nom' => 'maugrey', 'genre' => 1],
+            ['prenom' => 'Desmond', 'nom' => 'Miles', 'genre' => 'Homme'],
+            ['prenom' => 'Sam', 'nom' => 'Fisher', 'genre' => 'Homme'],
+            ['prenom' => 'Alastor', 'nom' => 'Maugrey', 'genre' => 'Homme'],
         );
 
         foreach ($clients as $client) {
