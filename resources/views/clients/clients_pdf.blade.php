@@ -12,11 +12,11 @@
 <table class="table  mt-2">
     <thead>
         <tr>
-            <th width="20px">#</th>
-            <th class="text-nowrap">Prénom et Nom</th>
-            <th class="text-nowrap">Identification</th>
-            <th class="text-nowrap">Local</th>
-            <th class="text-nowrap">Montant</th>
+            <th>#</th>
+            <th>Prénom et Nom</th>
+            <th>Identification</th>
+            <th>Local</th>
+            <th style="width: 80px">Montant</th>
         </tr>
     </thead>
     <tbody>

@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>#</th>
-            <th class="text-nowrap">Nom</th>
-            <th class="text-nowrap">Numero</th>
-            <th class="text-nowrap">Accupant</th>
-            <th class="text-nowrap">Montant</th>
+            <th>Nom et lieu</th>
+            <th style="width: 80px">Numero</th>
+            <th>Accupant</th>
+            <th style="width: 80px">Montant</th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@
                 {{ $appartement->contrat->client->prenom ?? '(Prénom)' }} {{ $appartement->contrat->client->nom ?? 'Nom' }}
                 <div class="text-italic">{{ $appartement->contrat->client->ci ?? '(Numéro d\'identité)' }}</div>
             </td>
-            <td class="text-right">{{ number_format($appartement->contrat->montant ?? 0, 0, ',', ' ') }} F</td>
+            <td class="text-right" >{{ number_format($appartement->contrat->montant ?? 0, 0, ',', ' ') }} F</td>
 
         </tr>
         @endforeach
