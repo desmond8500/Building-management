@@ -30,6 +30,25 @@ class PdfController extends Controller
         return $pdf->stream("Contrat $client->prenom $client->nom _ $appartement->local");
     }
 
+    public function show_all_contrat()
+    {
+        $contrats = Contrat::all();
+
+        $data = array(
+            "contrats" => $contrats,
+            // "appart" => $appartement,
+            // "contrat" => $contrat,
+            "annee" => date('Y'),
+            // 'taxe' => $contrat->montant*0.24 + 6000,
+            // 'caution' => $contrat->montant*2,
+            'jour' => date('d F Y')
+        );
+
+        $pdf = Pdf::loadView('contrats.all_contrat_pdf', $data);
+
+        return $pdf->stream("Contrats");
+    }
+
     public function show_clients()
     {
         $clients = Client::where('statut', 1)->get();
