@@ -85,7 +85,6 @@
                                                 <button wire:click="update" class="btn btn-primary">Modifier</button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </td>
                             @else
