@@ -4,7 +4,7 @@
 .text-center { text-align: center; }
 .text-justify { text-align: justify; }
 .text-bold { font-weight: bold; }
-.text-italic { text-decoration: italic; }
+.text-italic { font-style: italic; }
 .text-underline { text-decoration: underline; }
 
 /* Margin */

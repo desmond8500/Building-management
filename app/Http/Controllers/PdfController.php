@@ -29,4 +29,19 @@ class PdfController extends Controller
 
         return $pdf->stream();
     }
+
+    public function show_clients()
+    {
+        $clients = Client::all();
+
+        $data = array(
+            "clients" => $clients,
+        );
+
+        $pdf = Pdf::loadView('clients.clients_pdf', $data);
+
+        return $pdf->stream();
+    }
+
+
 }
