@@ -30,12 +30,12 @@
                 </div>
             </td>
             <td>
-                <div class="">{{ $client->ci }}</div>
-                <div class="text-italic">{{ $client->delivre }}</div>
+                <div class="">{{ $client->ci ?? '(Numéro d\'identité)'}}</div>
+                <div class="text-italic">{{ $client->delivre ?? '(Date de délivrance)'}}</div>
             </td>
             <td>
-                <div>{{ $client->contrat->appartement->nom ?? ''}}</div>
-                <div>{{ $client->contrat->appartement->adresse ?? ''}}</div>
+                <div>{{ $client->contrat->appartement->nom ?? '(Nom Local)'}}</div>
+                <div>{{ $client->contrat->appartement->adresse ?? '(Adresse du local)'}}</div>
             </td>
             <td class="text-right">
                 {{ number_format($client->contrat->montant ?? 0, 0, ',', ' ') }} F
