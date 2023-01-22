@@ -21,7 +21,7 @@ class PdfController extends Controller
             "contrat" => $contrat,
             "annee" => date('Y'),
             'taxe' => $contrat->montant*0.24 + 6000,
-            'caution' => $contrat->montant*3,
+            'caution' => $contrat->montant*2,
             // 'jour' => date('d F Y')
         );
 
