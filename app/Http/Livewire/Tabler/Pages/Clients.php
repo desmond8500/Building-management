@@ -50,6 +50,8 @@ class Clients extends Component
         $this->nom = $client->nom;
         $this->genre = $client->genre;
         $this->statut = $client->statut;
+        $this->ci = $client->ci;
+        $this->delivre = $client->delivre;
     }
     public function update()
     {
@@ -60,6 +62,8 @@ class Clients extends Component
         $client->ci = $this->ci;
         $client->delivre = $this->delivre;
         $client->statut = $this->statut;
+        $client->ci = $this->ci;
+        $client->delivre = $this->delivre;
         $client->save();
         $this->reset('prenom', 'nom', 'client_id');
     }
