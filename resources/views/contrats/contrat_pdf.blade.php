@@ -21,8 +21,9 @@ Contrat
     </div>
 
     <div class="text-justify mt-1">
-        A cela il faut ajouter la taxe d’enregistrement (timbres compris) sur location de <b>{{ number_format($taxe, 0, ',', ' ') }} Francs CFA</b> à verser à la
-        signature du présent contrat.
+        A cela il faut ajouter la taxe d’enregistrement (timbres compris) sur location
+         {{-- de <b>{{ number_format($taxe, 0, ',', ' ') }} Francs CFA</b>  --}}
+         à verser à la signature du présent contrat.
     </div>
 
     <div class="text-justify mt-1">
