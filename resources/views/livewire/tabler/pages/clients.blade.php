@@ -92,7 +92,12 @@
                                 <th>{{ $key+1 }}</th>
                                 <td>
                                     <div wire:click="gotoClient('{{ $client->id }}')" type="button">
-                                        {{ ucfirst($client->prenom) }} {{ strtoupper($client->nom) }}
+                                        {{ ucfirst($client->prenom) }} {{ strtoupper($client->nom) }} <br>
+                                        @if ($client->genre == 'femme')
+                                            Femme
+                                        @else
+                                            Homme
+                                        @endif
                                     </div>
                                 </td>
                                 <td>
