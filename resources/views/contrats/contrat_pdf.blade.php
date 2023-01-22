@@ -21,7 +21,7 @@ Contrat
 
     <div class="text-justify">
         Cette location qui prendra effet le <b>01 janvier {{ $annee }}</b> est usage d’habitation. Elle est consentie au prix
-        de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel et d’avance au plus tard le <b>05 de chaque mois</b>.
+        de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel au plus tard le <b>05 de chaque mois</b>.
     </div>
 
     <div class="text-justify mt-1">
