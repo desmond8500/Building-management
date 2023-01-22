@@ -1,5 +1,9 @@
 @extends('contrats.contrat_layout')
 
+@section('title')
+    Liste des clients
+@endsection
+
 @section('content')
 <h3 class="text-center">Liste des clients </h3>
 
@@ -22,7 +26,7 @@
             <th>{{ $key+1 }}</th>
             <td>
                 <div wire:click="gotoClient('{{ $client->id }}')" type="button">
-                    {{ ucfirst($client->prenom) }} <b>{{ strtoupper($client->nom) }}</b>
+                    {{ ucfirst($client->prenom) }} {{ strtoupper($client->nom) }}
                 </div>
             </td>
             <td>

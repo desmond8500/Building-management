@@ -43,4 +43,9 @@ class Appartement extends Model
         return $this->hasOne(Compteur::class);
     }
 
+    public function contrat(): HasOne
+    {
+        return $this->hasOne(Contrat::class);
+    }
+
 }

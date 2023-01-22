@@ -1,5 +1,9 @@
 @extends('contrats.contrat_layout')
 
+@section('title')
+Contrat
+@endsection
+
 @section('content')
     <h3 class="text-center">ENGAGEMENT DE LOCATION VERBALE A DUREE DETERMINEE <br> (01 AN RENOUVELABLE)</h3>
 

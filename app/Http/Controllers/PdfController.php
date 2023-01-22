@@ -43,5 +43,18 @@ class PdfController extends Controller
         return $pdf->stream();
     }
 
+    public function show_appartements()
+    {
+        $appartements = Appartement::all();
+
+        $data = array(
+            "appartements" => $appartements,
+        );
+
+        $pdf = Pdf::loadView('appartements.appartements_pdf', $data);
+
+        return $pdf->stream();
+    }
+
 
 }
