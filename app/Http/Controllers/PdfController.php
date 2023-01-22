@@ -27,7 +27,7 @@ class PdfController extends Controller
 
         $pdf = Pdf::loadView('contrats.contrat_pdf', $data);
 
-        return $pdf->stream();
+        return $pdf->stream("Contrat $client->prenom $client->nom _ $appartement->local");
     }
 
     public function show_clients()
@@ -40,7 +40,7 @@ class PdfController extends Controller
 
         $pdf = Pdf::loadView('clients.clients_pdf', $data);
 
-        return $pdf->stream();
+        return $pdf->stream('Liste des clients');
     }
 
     public function show_appartements()
@@ -53,7 +53,7 @@ class PdfController extends Controller
 
         $pdf = Pdf::loadView('appartements.appartements_pdf', $data);
 
-        return $pdf->stream();
+        return $pdf->stream('Liste des appartements');
     }
 
 

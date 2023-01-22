@@ -16,7 +16,7 @@ Contrat
         @endif
         qui s’engage à prendre en location
         les locaux dont la désignation suit : <b>{{ $appart->adresse }}</b> ,<b>{{ $appart->nom ?? 'Appartement 11' }}</b>,
-        sans qu’il soit nécessaire de désigner les lieux plus amplement, les connaissant pour les avoir visité.
+        sans qu’il soit nécessaire de désigner les lieux plus amplement, les connaissant pour les avoir visités.
     </div>
 
     <div class="text-justify">
@@ -69,7 +69,7 @@ Contrat
         commandement de payer ou de mise en demeure d’exécuter resté sans qu’il soit besoin de remplir
         d’autres formalités judiciaires. Une simple ordonnance de référé autorisant l’expulsion et nonobstant
         toutes offres ou consignes ultérieures et attributions est donnée au président du tribunal statuant en référé
-        pour ordonner dans ce vas l’expulsion du locataire.
+        pour ordonner dans ce cas l’expulsion du locataire.
         <br>
         En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
     </div>
