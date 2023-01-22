@@ -119,7 +119,8 @@
                         @else
                             <tr class="">
                                 <td scope="row">
-                                    <button class="btn btn-primary" wire:click="selectContract('{{ $contrat->id }}')">add</button>
+                                    {{ $key+1 }}
+                                    {{-- <button class="btn btn-primary" wire:click="selectContract('{{ $contrat->id }}')">add</button> --}}
                                 </td>
                                 <td scope="row">
                                     {{ $contrat->client->prenom }} {{ $contrat->client->nom }}
