@@ -38,6 +38,7 @@
                             <th class="text-nowrap">Numero</th>
                             <th class="text-nowrap">Accupant</th>
                             <th class="text-nowrap">Montant</th>
+                            <th class="text-nowrap">Statut</th>
                             <th width="20px" class="text-nowrap">Action</th>
                         </tr>
                     </thead>
@@ -46,15 +47,15 @@
                         <tr>
                             @if ($appart_id == $appartement->id)
                             <div class="row p-3">
-                                <div class="form-group col-md-8 mb-3">
+                                <div class="form-group col-md-6 mb-3">
                                     <label class="form-label">Nom l'appartement </label>
                                     <input type="text" wire:model.defer="nom" class="form-control" placeholder="Nom de l'appartement">
                                 </div>
-                                <div class="form-group col-md-4 mb-3">
+                                <div class="form-group col-md-2 mb-3">
                                     <label class="form-label">Numéro </label>
                                     <input type="text" wire:model.defer="numero" class="form-control" placeholder="Numéro">
                                 </div>
-                                <div class="mb-3 form-group col-md-4">
+                                <div class="mb-3 form-group col-md-2">
                                     <label class="form-label">Niveau</label>
                                     <select wire:model.defer="niveau" class="form-control">
                                         <option>Sous sol</option>
@@ -67,13 +68,17 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-8">
-                                    <label class="form-label">Adresse </label>
-                                    <input type="text" wire:model.defer="adresse" class="form-control" placeholder="Adresse">
+                                <div class="form-group col-md-2">
+                                    <label class="form-label">Statut </label>
+                                    <select wire:model.defer="statut" class="form-control">
+                                        <option value="0">Libre</option>
+                                        <option value="1">Occupé</option>
+                                    </select>
                                 </div>
+
                                 <div class="mb-3 form-group col-md-12">
-                                    <label class="form-label">Description</label>
-                                    <textarea wire:model.defer="description" class="form-control" placeholder="Description" cols="30"
+                                    <label class="form-label">Adresse</label>
+                                    <textarea wire:model.defer="adresse" class="form-control" placeholder="Description" cols="30"
                                         rows="3"></textarea>
                                 </div>
                                 <div class="col-md-12">
@@ -97,6 +102,13 @@
                                 <div class="text-italic">{{ $appartement->contrat->client->ci ?? 'N/A' }}</div>
                             </td>
                             <td>{{ number_format($appartement->contrat->montant ?? 0, 0, ',', ' ') }} F</td>
+                            <td>
+                                @if ($appartement->statut)
+                                    Occupé
+                                @else
+                                    Libre
+                                @endif
+                            </td>
                             <td>
                                 <button class="btn btn-outline-primary btn-icon" wire:click="edit('{{ $appartement->id }}')">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" /> <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" /> <line x1="16" y1="5" x2="19" y2="8" /> </svg>

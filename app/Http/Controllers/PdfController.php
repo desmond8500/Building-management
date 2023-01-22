@@ -32,7 +32,7 @@ class PdfController extends Controller
 
     public function show_clients()
     {
-        $clients = Client::all();
+        $clients = Client::where('statut', 1)->get();
 
         $data = array(
             "clients" => $clients,
@@ -45,7 +45,7 @@ class PdfController extends Controller
 
     public function show_appartements()
     {
-        $appartements = Appartement::all();
+        $appartements = Appartement::where('statut', 1)->get();
 
         $data = array(
             "appartements" => $appartements,

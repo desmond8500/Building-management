@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<h3 class="text-center">Liste des clients </h3>
+<h3 class="text-center">Liste des appartements </h3>
 
 
 

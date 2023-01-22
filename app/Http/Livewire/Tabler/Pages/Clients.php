@@ -27,7 +27,7 @@ class Clients extends Component
         ])->extends('app.layout')->section('content');
     }
 
-    public $prenom, $nom, $genre = 'homme', $ci, $delivre;
+    public $prenom, $nom, $genre = 'homme', $ci, $delivre, $statut;
     public $client_id;
 
     public function store()
@@ -49,6 +49,7 @@ class Clients extends Component
         $this->prenom = $client->prenom;
         $this->nom = $client->nom;
         $this->genre = $client->genre;
+        $this->statut = $client->statut;
     }
     public function update()
     {
@@ -58,6 +59,7 @@ class Clients extends Component
         $client->genre = $this->genre;
         $client->ci = $this->ci;
         $client->delivre = $this->delivre;
+        $client->statut = $this->statut;
         $client->save();
         $this->reset('prenom', 'nom', 'client_id');
     }

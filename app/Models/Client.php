@@ -32,6 +32,7 @@ class Client extends Model
         'genre',
         'ci',
         'delivre',
+        'statut',
     ];
 
     protected $casts = [
@@ -41,6 +42,7 @@ class Client extends Model
         'genre' => 'string',
         'ci' => 'string',
         'delivre' => 'string',
+        'statut' => 'string',
     ];
 
     public static $rules = [

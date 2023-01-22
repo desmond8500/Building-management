@@ -45,36 +45,46 @@
                         @foreach ($clients as $key => $client)
                         <tr>
                             @if ($client_id == $client->id)
-                                <td colspan="6" class="row p-2">
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="form-label">Prénom du client </label>
-                                        <input type="text" wire:model.defer="prenom" class="form-control" placeholder="Prénom">
-                                    </div>
-                                    <div class="form-group col-md-6 mb-3">
-                                        <label class="form-label">Nom du client </label>
-                                        <input type="text" wire:model.defer="nom" class="form-control" placeholder="nom">
-                                    </div>
-                                    <div class="form-group col-md-4 mb-3">
-                                        <label class="form-label">Numéro d'identité</label>
-                                        <input type="text" wire:model.defer="ci" class="form-control" placeholder="Numéro de carte d'identité">
-                                    </div>
-                                    <div class="form-group col-md-4 mb-3">
-                                        <label class="form-label">Délivrance</label>
-                                        <input type="text" wire:model.defer="delivre" class="form-control" placeholder="Date et lieu de délivrance">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label class="form-label">Genre</label>
-                                        <select wire:model.defer="genre" class="form-control">
-                                            <option value="homme">Homme</option>
-                                            <option value="femme">Femme</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12 mt-2">
-                                        <div class="float-right">
-                                            <button wire:click="$set('client_id',0)" class="btn btn-secondary">Fermer</button>
-                                            <button wire:click="delete" class="btn btn-danger">Supprimer</button>
-                                            <button wire:click="update" class="btn btn-primary">Modifier</button>
+                                <td colspan="6" >
+                                    <div class="row p-2">
+                                        <div class="form-group col-md-5 mb-3">
+                                            <label class="form-label">Prénom du client </label>
+                                            <input type="text" wire:model.defer="prenom" class="form-control" placeholder="Prénom">
                                         </div>
+                                        <div class="form-group col-md-5 mb-3">
+                                            <label class="form-label">Nom du client </label>
+                                            <input type="text" wire:model.defer="nom" class="form-control" placeholder="nom">
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label">Statut</label>
+                                            <select wire:model.defer="statut" class="form-control">
+                                                <option value="0">Libre</option>
+                                                <option value="1">Occupé</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label class="form-label">Numéro d'identité</label>
+                                            <input type="text" wire:model.defer="ci" class="form-control" placeholder="Numéro de carte d'identité">
+                                        </div>
+                                        <div class="form-group col-md-4 mb-3">
+                                            <label class="form-label">Délivrance</label>
+                                            <input type="text" wire:model.defer="delivre" class="form-control" placeholder="Date et lieu de délivrance">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label">Genre</label>
+                                            <select wire:model.defer="genre" class="form-control">
+                                                <option value="homme">Homme</option>
+                                                <option value="femme">Femme</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 mt-2">
+                                            <div class="text-end">
+                                                <button wire:click="$set('client_id',0)" class="btn btn-secondary">Fermer</button>
+                                                <button wire:click="delete" class="btn btn-danger">Supprimer</button>
+                                                <button wire:click="update" class="btn btn-primary">Modifier</button>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </td>
                             @else

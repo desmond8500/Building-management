@@ -18,7 +18,8 @@ class Appartement extends Model
         'nom',
         'numero',
         'niveau',
-        'adresse'
+        'adresse',
+        'statut'
     ];
 
     protected $casts = [
@@ -26,7 +27,8 @@ class Appartement extends Model
         'nom' => 'string',
         'numero' => 'string',
         'niveau' => 'string',
-        'adresse' => 'string'
+        'adresse' => 'string',
+        'statut' => 'string',
     ];
 
     public static $rules = [
