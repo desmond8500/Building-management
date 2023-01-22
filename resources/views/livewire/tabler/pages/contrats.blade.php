@@ -80,7 +80,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($contrats as $contrat)
+                        @foreach ($contrats as $key => $contrat)
                         @if ($contrat_id == $contrat->id)
                             <tr class="">
                                 <td colspan="4">
