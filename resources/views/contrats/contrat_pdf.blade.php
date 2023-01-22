@@ -10,7 +10,11 @@ Contrat
     <div class="text-justify">
         Entre: Le bailleur <b>M. Momar DIAGNE</b>, <b>PC n° 327812 du 09 Juin 1999</b> et Le preneur,
         <b> @if ($client->genre == 'homme') M. @else Mme @endif {{ $client->prenom }} {{ strtoupper($client->nom) }} </b>,
-        CI N° <b>{{ $client->ci }}</b>, délivrée le<b> {{ $client->delivre ?? "00 00 0000" }}</b> qui s’engage à prendre en location
+        CI N° <b>{{ $client->ci }}</b>,
+        @if ($client->delivre)
+            délivrée le<b> {{ $client->delivre ?? "00 00 0000" }}</b>
+        @endif
+        qui s’engage à prendre en location
         les locaux dont la désignation suit : <b>{{ $appart->adresse }}</b> ,<b>{{ $appart->nom ?? 'Appartement 11' }}</b>,
         sans qu’il soit nécessaire de désigner les lieux plus amplement, les connaissant pour les avoir visité.
     </div>
