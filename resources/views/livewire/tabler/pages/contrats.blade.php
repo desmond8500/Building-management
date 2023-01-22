@@ -124,7 +124,10 @@
                                 <td scope="row">
                                     {{ $contrat->client->prenom }} {{ $contrat->client->nom }}
                                 </td>
-                                <td>{{ $contrat->appartement->nom }}</td>
+                                <td>
+                                    {{ $contrat->appartement->nom }} <br>
+                                    {{ $contrat->appartement->adresse }}
+                                </td>
                                 <td>{{ number_format($contrat->montant, 0, ',', ' ') }} F</td>
                                 <td>
                                     <a class="btn btn-sm btn-primary" wire:click="edit_contract('{{ $contrat->id }}')">Editer</a>
