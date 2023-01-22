@@ -154,7 +154,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label">Genre</label>
-                        <select wire:model="genre" class="form-control">
+                        <select wire:model.defer="genre" class="form-control">
                             <option value="homme">Homme</option>
                             <option value="femme">Femme</option>
                         </select>
