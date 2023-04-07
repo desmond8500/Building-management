@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appartement;
 use App\Models\Client;
+use App\Models\Compteur;
 use App\Models\Contrat;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -73,6 +74,19 @@ class PdfController extends Controller
         $pdf = Pdf::loadView('appartements.appartements_pdf', $data);
 
         return $pdf->stream('Liste des appartements');
+    }
+
+    public function appartement_compteurs_pdf()
+    {
+        $compteurs = Compteur::where('type', 'EAU')->get();
+
+        $data = array(
+            "compteurs" => $compteurs,
+        );
+
+        $pdf = Pdf::loadView('_pdf.appartement_compteurs_pdf', $data);
+
+        return $pdf->stream('Liste des compteurs');
     }
 
 

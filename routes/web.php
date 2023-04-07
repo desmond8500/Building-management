@@ -21,18 +21,19 @@ Route::get('mat', MaterialIndex::class)->name('material.index');
 
 // Configurations
 Route::name('tabler.')->group(function () {
-    Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/clients', Clients::class)->name('clients');
-    Route::get('/client/{client_id}', Client::class)->name('client');
-    Route::get('/compteurs', Compteurs::class)->name('compteurs');
-    Route::get('/factures', Factures::class)->name('factures');
-    Route::get('/appartements', Appartements::class)->name('appartements');
-    Route::get('/contrats', Contrats::class)->name('contrats');
+    Route::get('/profile',              Profile::class)->name('profile');
+    Route::get('/clients',              Clients::class)->name('clients');
+    Route::get('/client/{client_id}',   Client::class)->name('client');
+    Route::get('/compteurs',            Compteurs::class)->name('compteurs');
+    Route::get('/factures',             Factures::class)->name('factures');
+    Route::get('/appartements',         Appartements::class)->name('appartements');
+    Route::get('/contrats',             Contrats::class)->name('contrats');
 
-    Route::get('contrat_pdf/{contrat_id}', [PdfController::class, 'show_contrat'])->name('contrat_pdf');
-    Route::get('contrats_pdf', [PdfController::class, 'show_all_contrat'])->name('all_contrat_pdf');
-    Route::get('clients_pdf', [PdfController::class, 'show_clients'])->name('clients_pdf');
-    Route::get('appartements_pdf', [PdfController::class, 'show_appartements'])->name('appartements_pdf');
+    Route::get('contrat_pdf/{contrat_id}',  [PdfController::class, 'show_contrat'])->name('contrat_pdf');
+    Route::get('contrats_pdf',              [PdfController::class, 'show_all_contrat'])->name('all_contrat_pdf');
+    Route::get('clients_pdf',               [PdfController::class, 'show_clients'])->name('clients_pdf');
+    Route::get('appartements_pdf',          [PdfController::class, 'show_appartements'])->name('appartements_pdf');
+    Route::get('appartement_compteurs_pdf', [PdfController::class, 'appartement_compteurs_pdf'])->name('appartement_compteurs_pdf');
 
     // Route::get('contrat_pdf/{client_id}', function () {
     //     $data = [
@@ -64,14 +65,3 @@ Route::get('relation_field_template', '\InfyOm\GeneratorBuilder\Controllers\Gene
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate')->name('io_generator_builder_generate');
 Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')->name('io_generator_builder_rollback');
 Route::post( 'generator_builder/generate-from-file', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile' )->name('io_generator_builder_generate_from_file');
-
-
-// Route::resource('clients', App\Http\Controllers\ClientController::class);
-// Route::resource('compteurs', App\Http\Controllers\compteurController::class);
-// Route::resource('appartements', App\Http\Controllers\appartementController::class);
-// Route::resource('factures', App\Http\Controllers\FactureController::class);
-
-
-
-
-// Route::resource('contrats', App\Http\Controllers\ContratController::class);
