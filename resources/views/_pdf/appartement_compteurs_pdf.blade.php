@@ -24,7 +24,7 @@
             @foreach ($compteurs as $key => $compteur)
                 <tr>
                     <th>{{ $key+1 }}</th>
-                    <td>{{ $compteur->type }}</td>
+                    <td class="text-center">{{ $compteur->type }}</td>
                     <td>{{ $compteur->reference }}</td>
                     <td>{{ $compteur->appartement->nom }}</td>
                 </tr>
