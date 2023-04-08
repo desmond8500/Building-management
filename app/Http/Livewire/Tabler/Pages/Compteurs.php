@@ -31,33 +31,41 @@ class Compteurs extends Component
     public $cpt_type = 'EAU', $cpt_number, $appartement_id;
     public $compteur_id = 0;
 
+    protected $rules = [
+        'cpt_type' => ['required'],
+        'cpt_number' => ['required'],
+        'appartement_id' => ['required', 'integer'],
+    ];
+
     public function store()
     {
+        $this->validate($this->rules);
         Compteur::create([
             'type' => $this->cpt_type,
             'reference' => $this->cpt_number,
             'appartement_id' => $this->appartement_id,
         ]);
-        $this->reset('cpt_number', 'appartement_id');
+        $this->reset('cpt_number', 'cpt_type', 'appartement_id');
     }
     public function edit($id)
     {
         $this->compteur_id = $id;
         $compteur = Compteur::find($id);
         $this->cpt_type = $compteur->type;
-        $this->cpt_number = $compteur->number;
+        $this->cpt_number = $compteur->reference;
         $this->appartement_id = $compteur->appartement_id;
     }
     public function update()
     {
+        $this->validate($this->rules);
         $compteur = Compteur::find($this->compteur_id);
         $compteur->type = $this->cpt_type;
-        $compteur->number = $this->cpt_number;
+        $compteur->reference = $this->cpt_number;
         $compteur->appartement_id = $this->appartement_id;
 
         $compteur->save();
 
-        $this->reset('compteur_id', 'cpt_number', 'appartement_id');
+        $this->reset('compteur_id', 'cpt_number','cpt_type', 'appartement_id');
     }
     public function delete()
     {

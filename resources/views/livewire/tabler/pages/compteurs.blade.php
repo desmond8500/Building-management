@@ -39,24 +39,27 @@
                             <tr>
                                 @if ($compteur_id == $compteur->id)
                                 <div class="row p-2">
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-4">
                                         <label class="form-label">Numéro de compteur </label>
                                         <input type="text" wire:model.defer="cpt_number" class="form-control" placeholder="Numéro du compteur">
                                     </div>
-                                    <div class="mb-3 form-group col-md-12">
+                                    @error('cpt_number') <span class="text-danger">{{ $message }}</span> @enderror
+                                    <div class="mb-3 form-group col-md-3">
                                         <label class="form-label">Type de compteur</label>
                                         <select wire:model.defer="cpt_type" class="form-control">
                                             <option>EAU</option>
                                             <option>Electricité</option>
                                         </select>
+                                        @error('cpt_type') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
-                                    <div class="mb-3 form-group col-md-12">
+                                    <div class="mb-3 form-group col-md-5">
                                         <label class="form-label">Appartement Associé</label>
                                         <select wire:model.defer="appartement_id" class="form-control">
                                             @foreach ($apparts as $appart)
                                             <option value="{{ $appart->id }}">{{ $appart->nom }}</option>
                                             @endforeach
                                         </select>
+                                        @error('appartement_id') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="col-md-12">
                                         <div class="float-right">
@@ -93,17 +96,18 @@
 
     {{-- Modal ========================================================= --}}
 
-    <div class="modal modal-blur fade" id="modalCompteur" tabindex="-1" role="dialog" aria-hidden="true">
+    <div wire:ignore.self class="modal modal-blur fade" id="modalCompteur" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <form wire:submit.prevent='store' class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Ajouter un compteur</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body row">
                     <div class="form-group col-md-8">
-                        <label class="form-label">Numéro de compter </label>
+                        <label class="form-label">Numéro de compteur </label>
                         <input type="text" wire:model.defer="cpt_number" class="form-control" placeholder="Numéro du compteur">
+                        @error('cpt_number') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3 form-group col-md-4">
                         <label class="form-label">Type de compteur</label>
@@ -111,8 +115,9 @@
                             <option>EAU</option>
                             <option>Electricité</option>
                         </select>
+                        @error('cpt_type') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="mb-3 form-group col-md-4">
+                    <div class="mb-3 form-group col-md-6">
                         <label class="form-label">Appartement Associé</label>
                         <select wire:model.defer="appartement_id" class="form-control">
                             <option value="1">Choisir un appartement</option>
@@ -120,13 +125,14 @@
                                 <option value="{{ $appart->id }}">{{ $appart->nom }}</option>
                             @endforeach
                         </select>
+                        @error('appartement_id') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a type="button" class="btn me-auto" data-bs-dismiss="modal">Fermer</a>
-                    <button wire:click="store" class="btn btn-primary" data-bs-dismiss="modal">Ajouter le Compteur</button>
+                    <a type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Fermer</a>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Ajouter le Compteur</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
