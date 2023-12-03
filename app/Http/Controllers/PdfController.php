@@ -20,7 +20,7 @@ class PdfController extends Controller
             "client" => $client,
             "appart" => $appartement,
             "contrat" => $contrat,
-            "annee" => date('Y'),
+            "annee" => date('Y')+1,
             'taxe' => $contrat->montant*0.24 + 6000,
             'caution' => $contrat->montant*2,
             // 'jour' => date('d F Y')
@@ -88,6 +88,5 @@ class PdfController extends Controller
 
         return $pdf->stream('Liste des compteurs');
     }
-
 
 }
