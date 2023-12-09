@@ -22,7 +22,7 @@ Contrat
         </div>
 
         <div class="text-justify">
-            Cette location qui prendra effet le <b>01 janvier {{ $annee }}</b> est à usage d’habitation. Elle est consentie au prix
+            Cette location qui prendra effet le <b>01 janvier {{ $annee+1 }}</b> est à usage d’habitation. Elle est consentie au prix
             de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel au plus tard le <b>05 de chaque mois</b>.
         </div>
 
@@ -76,7 +76,7 @@ Contrat
             En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
         </div>
 
-        <div class="text-right mt-1">Fait à Dakar, le 01 janvier {{ $annee }}</div>
+        <div class="text-right mt-1">Fait à Dakar, le 01 janvier {{ $annee+1 }}</div>
 
         <table class="table table-white mt-2">
             <tr>
