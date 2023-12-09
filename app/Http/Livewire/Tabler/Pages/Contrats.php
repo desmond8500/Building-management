@@ -71,5 +71,5 @@ class Contrats extends Component
     public function getContract()
     {
         return Contrat::all();
-    }T
+    }
 }
