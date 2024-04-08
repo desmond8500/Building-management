@@ -5,7 +5,7 @@ Contrat
 @endsection
 
 @section('content')
-    <h3 class="text-center">ENGAGEMENT DE LOCATION VERBALE A DUREE DETERMINEE <br> (01 AN RENOUVELABLE)</h3>
+    <h3 class="text-center">ENGAGEMENT DE LOCATION VERBALE A DURÉE DÉTERMINÉE <br> (01 AN RENOUVELABLE)</h3>
 
     <div class="text-justify">
         Entre: Le bailleur <b>M. Momar DIAGNE</b>, <b>PC n° 327812 du 09 Juin 1999</b> et Le preneur,
@@ -32,11 +32,11 @@ Contrat
 
     <div class="text-justify mt-1">
         Le présent contrat est renouvelable annuellement.
-        Le preneur reconnait par la présente,
+        Le preneur reconnaît par la présente,
         prendre les lieux loués en bon état de réparations locatives et s’engage en conséquence à le
         rendre au moment de son départ, en parfait état d’entretien.
         Il s'engage à satisfaire à toutes les charges de voirie de police et d'hygiène qui incombe aux locataires, y compris
-        l'entretien et le remplacement des grillages et les moutiquaires endommagés, afin qu'aucun recours ne puisse être
+        l'entretien et le remplacement des grillages et les moustiquaires endommagés, afin qu'aucun recours ne puisse être
         exercé à cet égard par le propriétaire.
     </div>
 
@@ -62,7 +62,7 @@ Contrat
         </div>
     </div>
 
-    <div class="text-bold text-underline mt-2 mb-0">CAUSE RESOLUTOIRE :</div>
+    <div class="text-bold text-underline mt-2 mb-0">CAUSE RÉSOLUTOIRE :</div>
     <div class="text-justify">
         A défaut de paiement à son échéance d’un seul terme de loyer ou d’inexécution de l’une des conditions
         qui précédent, le présent contrat sera résilié de plein droit trente (30) jours après un simple
