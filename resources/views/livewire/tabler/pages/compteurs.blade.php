@@ -12,27 +12,36 @@
                 <div class="card-header">
                     <h3 class="card-title">Compteurs</h3>
                     <div class="card-actions">
-                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompteur">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <line x1="12" y1="5" x2="12" y2="19" /> <line x1="5" y1="12" x2="19" y2="12" /> </svg>
-                            Compteur
-                        </a>
+                        <div class="btn-list">
+
+                            <div class="input-icon">
+                                <span class="input-icon-addon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <circle cx="10" cy="10" r="7" />
+                                        <line x1="21" y1="21" x2="15" y2="15" />
+                                    </svg>
+                                </span>
+                                <div class="input-group">
+                                    <input type="text" class="form-control " wire:model="search" placeholder="Rechercher…">
+                                    <button class="btn btn-primary" wire:click='toggle_type'>
+                                        @if ($search_type=='text')
+                                        {{ $search_type }}
+                                        @else
+                                        {{ $search_type }}
+                                        @endif
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompteur">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <line x1="12" y1="5" x2="12" y2="19" /> <line x1="5" y1="12" x2="19" y2="12" /> </svg>
+                                Compteur
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="input-icon">
-                    <span class="input-icon-addon">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <circle cx="10" cy="10" r="7" /> <line x1="21" y1="21" x2="15" y2="15" /> </svg>
-                    </span>
-                    <div class="input-group">
-                        <input type="text" class="form-control " wire:model="search" placeholder="Rechercher…">
-                        <button class="btn btn-primary" wire:click='toggle_type'>
-                            @if ($search_type=='text')
-                                {{ $search_type }}
-                            @else
-                                {{ $search_type }}
-                            @endif
-                        </button>
-                    </div>
-                </div>
+
                 <table class="table table-responsive">
                     <thead>
                         <tr>
