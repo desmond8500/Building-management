@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Index::class)->name('index');
 Route::get('mat', MaterialIndex::class)->name('material.index');
 
+Route::get('login', function () {
+
+})->name('login');
+
 // Configurations
 Route::name('tabler.')->group(function () {
     Route::get('/profile',              Profile::class)->name('profile');
@@ -54,7 +58,7 @@ Route::name('tabler.')->group(function () {
 
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

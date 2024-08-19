@@ -18,6 +18,15 @@ class Compteurs extends Component
     }
 
     public $search = '';
+    public $search_type = 'text';
+
+    function toggle_type(){
+        if ($this->search_type == 'text') {
+            $this->search_type = 'number';
+        }else{
+            $this->search_type = 'text';
+        }
+    }
 
     public function render()
     {
