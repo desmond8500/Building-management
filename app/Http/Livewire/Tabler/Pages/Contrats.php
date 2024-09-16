@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Contrats extends Component
 {
-    public $client_id, $appartement_id, $montant, $date, $type = 'habitation';
+    public $client_id, $appartement_id, $montant, $date, $type = 'habitation', $sign1=false, $sign2 =false;
     public $contrat_id, $selected = array();
 
     public function render()
@@ -44,6 +44,8 @@ class Contrats extends Component
             'montant' => $this->montant,
             'date' => $this->date,
             'type' => $this->type,
+            'sign1' => $this->sign1,
+            'sign2' => $this->sign2,
         ]);
     }
 
@@ -57,6 +59,8 @@ class Contrats extends Component
         $this->montant = $contrat->montant;
         $this->date = $contrat->date;
         $this->type = $contrat->type;
+        $this->sign1 = $contrat->sign1;
+        $this->sign2 = $contrat->sign2;
     }
 
     public function update_contract()
@@ -68,6 +72,8 @@ class Contrats extends Component
         $contrat->montant = $this->montant;
         $contrat->date = $this->date;
         $contrat->type = $this->type;
+        $contrat->sign1 = $this->sign1;
+        $contrat->sign2 = $this->sign2;
 
         $contrat->save();
 

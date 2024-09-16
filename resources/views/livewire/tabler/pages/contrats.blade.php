@@ -125,6 +125,15 @@
                                             <input type="date" class="form-control" wire:model.defer="date" placeholder="Date">
                                         </div>
 
+                                        <div class="mb-3 col-md-4">
+                                            <label class="form-label">Signature</label>
+                                            <select class="form-select" wire:model.defer="sign1">
+                                                <option value="">Select</option>
+                                                <option value="true">Active</option>
+                                                <option value="false">Inactive</option>
+                                            </select>
+                                        </div>
+
                                         <div class="text-end">
                                             <button type="button" class="btn btn-secondary" wire:click="$set('contrat_id', 0)">Fermer</button>
                                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"

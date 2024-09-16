@@ -102,7 +102,18 @@ Contrat
             <td class="td-white">LE PRENEUR</td>
             <td class="td-white text-right ">LE BAILLEUR</td>
         </tr>
+        @if ($contrat->sign1)
+            <tr>
+                <td class="td-white">
+                    <img src="img/Scan.jpg" alt="" style="height: 50px">
+                </td>
+                <td class="td-white text-right">
+                    <img src="img/sg.png" alt="" style="height: 100px">
+                </td>
+            </tr>
+        @endif
     </table>
+
 
 
 
