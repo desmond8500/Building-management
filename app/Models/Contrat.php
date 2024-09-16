@@ -63,6 +63,8 @@ class Contrat extends Model
         'debut',
         'fin',
         'montant',
+        'type',
+        'date',
     ];
 
     /**

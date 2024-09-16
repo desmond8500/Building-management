@@ -90,7 +90,7 @@
                             <tr class="">
                                 <td colspan="4">
                                     <div class="row">
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-4">
                                             <label class="form-label">Client</label>
                                             <select class="form-select" wire:model.defer="client_id">
                                                 <option value="0">Sélectionnez un client</option>
@@ -99,7 +99,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-4">
                                             <label class="form-label">Appartement</label>
                                             <select class="form-select" wire:model.defer="appartement_id">
                                                 <option value="0">Sélectionnez un Appartement</option>
@@ -108,9 +108,21 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-4">
                                             <label class="form-label">Montant</label>
                                             <input type="text" class="form-control" wire:model.defer="montant" placeholder="montant">
+                                        </div>
+                                        <div class="mb-3 col-md-4">
+                                            <label class="form-label">Type</label>
+                                            <select class="form-select" wire:model.defer="type">
+                                                <option value="0">Select</option>
+                                                <option value="habitation">Habitation</option>
+                                                <option value="bureau">Bureau</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 col-md-4">
+                                            <label class="form-label">Date</label>
+                                            <input type="date" class="form-control" wire:model.defer="date" placeholder="Date">
                                         </div>
 
                                         <div class="text-end">
@@ -136,10 +148,12 @@
                                 </td>
                                 <td>{{ number_format($contrat->montant, 0, ',', ' ') }} F</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" wire:click="edit_contract('{{ $contrat->id }}')">Editer</a>
+                                    <a class="btn btn-sm btn-primary rounded" wire:click="edit_contract('{{ $contrat->id }}')">
+                                        <i class="ti ti-edit"></i>    Editer
+                                    </a>
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('tabler.contrat_pdf',['contrat_id'=>$contrat->id]) }}" target="_blank">PDF</a>
+                                    <a class="btn btn-sm btn-primary rounded" href="{{ route('tabler.contrat_pdf',['contrat_id'=>$contrat->id]) }}" target="_blank">PDF</a>
                                 </td>
                             </tr>
                         @endif

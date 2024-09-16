@@ -19,8 +19,23 @@ Contrat
         sans qu’il soit nécessaire de désigner les lieux plus amplement, les connaissant pour les avoir visités.
     </div>
 
+    @php
+        $ndate = explode("-",$contrat->date);
+    @endphp
+
     <div class="text-justify">
-        Cette location qui prendra effet le <b>01 janvier {{ $annee }}</b> est usage d’habitation. Elle est consentie au prix
+        Cette location qui prendra effet le <b>
+        @if ($contrat->date)
+            {{ "$ndate[2] $ndate[1] $ndate[0]" }}
+        @else
+            01 janvier {{ $annee }}
+        @endif
+        </b> est usage
+        @if ($contrat->type)
+            de {{ $contrat->type }}
+        @else
+            d’habitation. Elle est consentie au prix
+        @endif
         de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel au plus tard le <b>05 de chaque mois</b>.
     </div>
 
@@ -74,7 +89,13 @@ Contrat
         En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
     </div>
 
-    <div class="text-right mt-1">Fait à Dakar, le 01 janvier {{ $annee }}</div>
+    <div class="text-right mt-1">Fait à Dakar, le
+        @if ($contrat->date)
+        {{ "$ndate[2] $ndate[1] $ndate[0]" }}
+        @else
+        01 janvier {{ $annee }}
+        @endif
+    </div>
 
     <table class="table table-white mt-2">
         <tr>
