@@ -129,8 +129,8 @@
                                             <label class="form-label">Signature</label>
                                             <select class="form-select" wire:model.defer="sign1">
                                                 <option value="">Select</option>
-                                                <option value="true">Active</option>
-                                                <option value="false">Inactive</option>
+                                                <option value="1">Active</option>
+                                                <option value="0">Inactive</option>
                                             </select>
                                         </div>
 
