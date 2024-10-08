@@ -24,7 +24,7 @@
                                     </svg>
                                 </span>
                                 <div class="input-group">
-                                    <input type="text" class="form-control " wire:model="search" placeholder="Rechercher…">
+                                    <input type="{{ $search_type }}" class="form-control " wire:model="search" placeholder="Rechercher…">
                                     <button class="btn btn-primary" wire:click='toggle_type'>
                                         @if ($search_type=='text')
                                         {{ $search_type }}

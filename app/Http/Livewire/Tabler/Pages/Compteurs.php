@@ -19,7 +19,7 @@ class Compteurs extends Component
     }
 
     public $search = '';
-    public $search_type = 'text';
+    public $search_type = 'number';
 
     function toggle_type(){
         if ($this->search_type == 'text') {
