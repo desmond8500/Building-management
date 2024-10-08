@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 
 class Compteurs extends Component
 {
+    // Bof
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
