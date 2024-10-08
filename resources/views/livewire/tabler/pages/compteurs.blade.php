@@ -67,7 +67,7 @@
                             </div>
                         @else
                             <div class="row ">
-                                <div class="col-md">
+                                <div class="col">
                                     <div class="fw-bold">{{ $compteur->appartement->nom }}</div>
                                     <div class="display-6">{{ $compteur->reference }}</div>
                                 </div>
