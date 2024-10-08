@@ -63,3 +63,11 @@ td {
 .th {
     /* text-align: center; */
 }
+
+.bg-blue{
+    background: blue;
+}
+.bg-green{
+    background: #257180;
+    color: white;
+}

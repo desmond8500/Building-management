@@ -8,12 +8,17 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 
     <h1>Compteurs</h1>
 
     <table class="table table-responsive">
-        <thead>
-            <tr class="bg-blue">
+        <thead >
+            <tr class="bg-green">
                 <th>#</th>
                 <th class="text-nowrap">Type</th>
                 <th class="text-nowrap">Numéro</th>
@@ -25,8 +30,8 @@
                 <tr>
                     <th>{{ $key+1 }}</th>
                     <td class="text-center">{{ $compteur->type }}</td>
-                    <td>{{ $compteur->reference }}</td>
-                    <td>{{ $compteur->appartement->nom }}</td>
+                    <td class="text-center">{{ $compteur->reference }}</td>
+                    <td class="text-center">{{ $compteur->appartement->nom }}</td>
                 </tr>
             @endforeach
         </tbody>

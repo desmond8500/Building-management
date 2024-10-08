@@ -26,11 +26,7 @@
                                 <div class="input-group">
                                     <input type="{{ $search_type }}" class="form-control " wire:model="search" placeholder="Rechercher…">
                                     <button class="btn btn-primary" wire:click='toggle_type'>
-                                        @if ($search_type=='text')
-                                        {{ $search_type }}
-                                        @else
-                                        {{ $search_type }}
-                                        @endif
+                                        {{ ucfirst($search_type) }}
                                     </button>
                                 </div>
                             </div>
@@ -54,7 +50,7 @@
                     </thead>
                     <tbody>
                         @foreach ($compteurs as $key => $compteur)
-                            <tr>
+                            <tr style="vertical-align: middle">
                                 @if ($compteur_id == $compteur->id)
                                 <div class="row p-2">
                                     <div class="form-group col-md-4">
