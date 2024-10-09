@@ -36,12 +36,13 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse" id="navbar-menu">
+
                 <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
                     <ul class="navbar-nav">
                         @foreach ($menus as $menu)
                             @if ($menu->route)
                                 @can($menu->can)
-                                    <li class="nav-item active">
+                                    <li class="nav-item @if (basename(Request::url()) == strtolower($menu->name)) active @endif">
                                         <a class="nav-link" href="{{ route($menu->route) }}">
                                             <span class="nav-link-icon d-md-none d-lg-inline-block"> {!! $menu->icon !!} </span>
                                             <span class="nav-link-title"> {{ $menu->name }} </span>

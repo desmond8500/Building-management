@@ -35,12 +35,12 @@
                     <div class="p-2">
                         @if ($compteur_id == $compteur->id)
                             <div class="row p-2">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-12">
                                     <label class="form-label">Numéro de compteur </label>
                                     <input type="text" wire:model.defer="cpt_number" class="form-control" placeholder="Numéro du compteur">
                                 </div>
                                 @error('cpt_number') <span class="text-danger">{{ $message }}</span> @enderror
-                                <div class="mb-3 form-group col-md-3">
+                                <div class="mb-3 form-group col-md-12">
                                     <label class="form-label">Type de compteur</label>
                                     <select wire:model.defer="cpt_type" class="form-control">
                                         <option>EAU</option>
@@ -48,7 +48,7 @@
                                     </select>
                                     @error('cpt_type') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
-                                <div class="mb-3 form-group col-md-5">
+                                <div class="mb-3 form-group col-md-12">
                                     <label class="form-label">Appartement Associé</label>
                                     <select wire:model.defer="appartement_id" class="form-control">
                                         @foreach ($apparts as $appart)
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="float-right">
-                                        <button wire:click="$set('compteur_id',0)" class="btn btn-secondary">Fermer</button>
+                                        <button wire:click="$set('compteur_id',0)" class="btn btn-secondary">Fermer <i class="ti ti-trash"></i></button>
                                         <button wire:click="delete" class="btn btn-danger">Supprimer</button>
                                         <button wire:click="update" class="btn btn-primary">Modifier</button>
                                     </div>
@@ -90,16 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            {{-- <th>{{ $key+1 }}</th>
-                            <td>{{ $compteur->type }}</td>
-                            <td>{{ $compteur->reference }}</td>
-                            <td>{{ $compteur->appartement->nom }}</td>
-                            <td>
-
-                            </td> --}}
                         @endif
-
                     </div>
                 </div>
             </div>
