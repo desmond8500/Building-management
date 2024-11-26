@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@1.74.0/icons-react/dist/index.umd.min.js"></script>
     @livewireStyles
+
+    <style>
+        i{
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body class="antialiased">
