@@ -5,6 +5,7 @@ use App\Http\Controllers\PdfController;
 use App\Http\Livewire\Material\Index as MaterialIndex;
 use App\Http\Livewire\Tabler\Index;
 use App\Http\Livewire\Tabler\Pages\Appartements;
+use App\Http\Livewire\Tabler\Pages\Batiments;
 use App\Http\Livewire\Tabler\Pages\Client;
 use App\Http\Livewire\Tabler\Pages\Clients;
 use App\Http\Livewire\Tabler\Pages\Compteurs;
@@ -32,6 +33,7 @@ Route::name('tabler.')->group(function () {
     Route::get('/factures',             Factures::class)->name('factures');
     Route::get('/appartements',         Appartements::class)->name('appartements');
     Route::get('/contrats',             Contrats::class)->name('contrats');
+    Route::get('/batiments',            Batiments::class)->name('batiments');
 
     Route::get('contrat_pdf/{contrat_id}',  [PdfController::class, 'show_contrat'])->name('contrat_pdf');
     Route::get('contrats_pdf',              [PdfController::class, 'show_all_contrat'])->name('all_contrat_pdf');
