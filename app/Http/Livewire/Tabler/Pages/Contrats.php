@@ -11,6 +11,8 @@ class Contrats extends Component
 {
     public $client_id, $appartement_id, $montant, $date, $type = 'habitation', $sign1=false, $sign2 =false;
     public $contrat_id, $selected = array();
+    public $debut;
+    public $fin;
 
     public function render()
     {
@@ -58,6 +60,8 @@ class Contrats extends Component
         $this->appartement_id = $contrat->appartement_id;
         $this->montant = $contrat->montant;
         $this->date = $contrat->date;
+        $this->debut = $contrat->debut;
+        $this->fin = $contrat->fin;
         $this->type = $contrat->type;
         $this->sign1 = $contrat->sign1;
         $this->sign2 = $contrat->sign2;
@@ -74,6 +78,8 @@ class Contrats extends Component
         $contrat->type = $this->type;
         $contrat->sign1 = $this->sign1;
         $contrat->sign2 = $this->sign2;
+        $contrat->debut = $this->debut;
+        $contrat->fin = $this->fin;
 
         $contrat->save();
 

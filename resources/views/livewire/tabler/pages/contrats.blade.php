@@ -103,6 +103,14 @@
                                         <label class="form-label">Date</label>
                                         <input type="date" class="form-control" wire:model.defer="date" placeholder="Date">
                                     </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label class="form-label">Date de début de contrat</label>
+                                        <input type="date" class="form-control" wire:model.defer="debut" placeholder="Date">
+                                    </div>
+                                    <div class="mb-3 col-md-4">
+                                        <label class="form-label">Date de fin de contrat</label>
+                                        <input type="date" class="form-control" wire:model.defer="fin" placeholder="Date">
+                                    </div>
 
                                     <div class="mb-3 col-md-4">
                                         <label class="form-label">Signature</label>
