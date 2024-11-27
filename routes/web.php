@@ -12,6 +12,9 @@ use App\Http\Livewire\Tabler\Pages\Compteurs;
 use App\Http\Livewire\Tabler\Pages\Contrats;
 use App\Http\Livewire\Tabler\Pages\Factures;
 use App\Http\Livewire\Tabler\Pages\Profile;
+use App\Models\Batiment;
+use App\Models\Contrat;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +39,12 @@ Route::name('tabler.')->group(function () {
     Route::get('/batiments',            Batiments::class)->name('batiments');
 
     Route::get('contrat_pdf/{contrat_id}',  [PdfController::class, 'show_contrat'])->name('contrat_pdf');
-    Route::get('contrats_pdf/{batiment_id?}',              [PdfController::class, 'show_all_contrat'])->name('all_contrat_pdf');
+    Route::get('contrats_pdf/{batiment_id}',  [PdfController::class, 'show_all_contrat'])->name('all_contrat_pdf');
+
+    Route::get('some_contrats_pdf/{batiment_id}', function ($batiment_id) {
+        return PdfController::some_contrats_pdf($batiment_id);
+    })->name('some_contrats_pdf');
+
     Route::get('clients_pdf',               [PdfController::class, 'show_clients'])->name('clients_pdf');
     Route::get('appartements_pdf',          [PdfController::class, 'show_appartements'])->name('appartements_pdf');
     Route::get('appartement_compteurs_pdf', [PdfController::class, 'appartement_compteurs_pdf'])->name('appartement_compteurs_pdf');

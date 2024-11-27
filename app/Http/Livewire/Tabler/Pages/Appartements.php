@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tabler\Pages;
 
 use App\Models\appartement;
 use App\Models\Appartement as ModelsAppartement;
+use App\Models\Batiment;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -23,10 +24,12 @@ class Appartements extends Component
     {
         return view('livewire.tabler.pages.appartements',[
             'appartements' => ModelsAppartement::where('nom', 'like', '%' . $this->search . '%')->paginate(10),
+            'batiments' => Batiment::all(),
         ])->extends('app.layout')->section('content');
     }
 
     public $appart_id = 0;
+    public $batiment_id;
     public $nom, $numero, $niveau = 'RDC', $description, $adresse, $statut;
     public function store_appart()
     {
@@ -44,6 +47,7 @@ class Appartements extends Component
         $this->appart_id = $id;
         $appart = ModelsAppartement::find($id);
         $this->nom = $appart->nom;
+        $this->batiment_id = $appart->batiment_id;
         $this->numero = $appart->numero;
         $this->niveau = $appart->niveau;
         $this->adresse = $appart->adresse;
@@ -52,6 +56,7 @@ class Appartements extends Component
     public function update()
     {
         $appart = ModelsAppartement::find($this->appart_id);
+        $appart->batiment_id = $this->batiment_id;
         $appart->nom = $this->nom;
         $appart->numero = $this->numero;
         $appart->niveau = $this->niveau;

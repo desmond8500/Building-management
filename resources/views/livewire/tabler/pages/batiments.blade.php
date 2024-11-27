@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">{{ $batiment->name }}</div>
+                        <h2 class="card-title">{{ $batiment->name }}</h2>
                         <div class="card-actions">
                             <button class="btn btn-primary btn-icon" wire:click="edit('{{ $batiment->id }}')">
                                 <i class="ti ti-edit"></i>
@@ -39,7 +39,7 @@
                                     <h2>Contrats</h2>
                                 </div>
                                 <div class="col-auto">
-                                    <a class="btn btn-primary" href="{{ route('tabler.all_contrat_pdf',['batiment_id'=>$batiment->id]) }}" target="_blank">PDF</a>
+                                    <a class="btn btn-primary" href="{{ route('tabler.some_contrats_pdf',['batiment_id'=>$batiment->id]) }}" target="_blank">PDF</a>
                                 </div>
                             </div>
                             @foreach ($batiment->contrats as $contrat)
@@ -55,8 +55,6 @@
             </div>
         @endforeach
     </div>
-
-
 
     <div class="modal modal-blur fade" id="addBatiment" tabindex="-1" role="dialog" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" role="document">

@@ -32,7 +32,21 @@ class PdfController extends Controller
         return $pdf->stream("Contrat $client->prenom $client->nom _ $appartement->local");
     }
 
-    public function show_all_contrat($batiment_id=null)
+    public static function show_all_contrat()
+    {
+        $contrats = Contrat::all();
+
+        $data = array(
+            "contrats" => $contrats,
+            "annee" => date('Y'),
+            'jour' => date('d F Y')
+        );
+
+        $pdf = Pdf::loadView('contrats.all_contrat_pdf', $data);
+
+        return $pdf->stream("Contrats");
+    }
+    public static function some_contrats_pdf($batiment_id)
     {
         if ($batiment_id) {
             $batiment = Batiment::find($batiment_id);
@@ -40,7 +54,6 @@ class PdfController extends Controller
         } else {
             $contrats = Contrat::all();
         }
-
 
         $data = array(
             "contrats" => $contrats,

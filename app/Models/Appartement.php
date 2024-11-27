@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -44,6 +45,11 @@ class Appartement extends Model
     public function contrat(): HasOne
     {
         return $this->hasOne(Contrat::class);
+    }
+
+    public function batiment(): BelongsTo
+    {
+        return $this->belongsTo(Batiment::class);
     }
 
 }
