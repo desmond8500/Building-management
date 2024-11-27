@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        @foreach ($compteurs as $key => $compteur)
+        @foreach ($compteurs->sortBy('appartement.nom') as $key => $compteur)
             <div class="col-md-4">
                 <div class="card">
                     <div class="p-2">

@@ -7,7 +7,7 @@
     @endcomponent
 
     <div class="row g-2">
-        @foreach ($batiments as $batiment)
+        @foreach ($batiments->sortBy('name') as $batiment)
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
@@ -30,7 +30,7 @@
                             </div>
                         @else
                             <h2>Appartements</h2>
-                            @foreach ($batiment->appartements as $appartement)
+                            @foreach ($batiment->appartements->sortBy('nom') as $appartement)
                                 <a href="{{ route('tabler.appartement',['appartement_id'=>$appartement->id]) }}" class="btn btn-primary mb-1" >{{ $appartement->nom }}</a>
                             @endforeach
                             <hr>
@@ -42,7 +42,7 @@
                                     <a class="btn btn-primary" href="{{ route('tabler.some_contrats_pdf',['batiment_id'=>$batiment->id]) }}" target="_blank">PDF</a>
                                 </div>
                             </div>
-                            @foreach ($batiment->contrats as $contrat)
+                            @foreach ($batiment->contrats->sortby('client.nom') as $contrat)
                                 <a href="{{ route('tabler.contrat',['contrat_id'=>$contrat->id]) }}" class="btn btn-primary mb-1" >{{ $contrat->client->prenom }} - {{ $contrat->client->nom }}</a>
                             @endforeach
                         @endif

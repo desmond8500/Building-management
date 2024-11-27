@@ -13,7 +13,7 @@ class Batiments extends Component
     {
         return view('livewire.tabler.pages.batiments',[
             'batiments' => Batiment::all(),
-        ] )->extends('app.layout')->section('content');;
+        ] )->extends('app.layout')->section('content');
     }
 
     function store(){
