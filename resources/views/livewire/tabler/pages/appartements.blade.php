@@ -103,7 +103,9 @@
 
                             <div class="col">
                                 <div>
-                                    {{ $appartement->contrat->client->prenom ?? '(Prénom)' }} {{ strtoupper($appartement->contrat->client->nom) ?? '(Nom)' }}
+                                    @isset($appartement->contrat)
+                                        {{ $appartement->contrat->client->prenom ?? '(Prénom)' }} {{ strtoupper($appartement->contrat->client->nom) ?? '(Nom)' }}
+                                    @endisset
                                     {{-- <div class="text-italic">{{ $appartement->contrat->client->ci ?? '(Numéro d\'identité)' }}</div> --}}
                                 </div>
                             </div>
