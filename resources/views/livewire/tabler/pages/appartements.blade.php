@@ -103,7 +103,7 @@
                                     {{ $appartement->nom }} / {{ $appartement->niveau }}
                                     <div class="text-italic">{{ $appartement->adresse ?? '(Adresse)' }}</div>
                                 </td>
-                                <td> {{ $appartement->batiment->name }} / {{ $appartement->numero }}</td>
+                                <td> @isset($appartement->batiment) {{ $appartement->batiment->name }} / @endisset {{ $appartement->numero }}</td>
                                 <td>
                                     {{ $appartement->contrat->client->prenom ?? '(Prénom)' }} {{ $appartement->contrat->client->nom ?? '(Nom)' }}
                                     <div class="text-italic">{{ $appartement->contrat->client->ci ?? '(Numéro d\'identité)' }}</div>
