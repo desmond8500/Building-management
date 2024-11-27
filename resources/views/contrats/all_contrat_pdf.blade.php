@@ -77,7 +77,7 @@ Contrat
                 En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
             </div>
 
-            <div class="text-right mt-1">Fait à Dakar, le 01 decembre {{ $annee }}</div>
+            <div class="text-right mt-1">Fait à Dakar, le 01 janvier {{ $annee+1 }}</div>
 
             <table class="table table-white mt-2">
                 <tr>
