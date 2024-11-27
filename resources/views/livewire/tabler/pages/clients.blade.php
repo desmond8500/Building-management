@@ -6,6 +6,14 @@
                 Clients
             </button>
         @endenv --}}
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#immoClient">
+            <i class="ti ti-plus"></i>
+            Client
+        </a>
+        <a class="btn btn-primary" href="{{ route('tabler.clients_pdf') }}" target="_blank">
+            <i class="ti ti-file-type-pdf"></i>
+            PDF
+        </a>
     @endcomponent
 
     <div class="row g-2">
@@ -17,7 +25,7 @@
                 </span>
             </div>
         </div>
-        <div class="col-auto">
+        {{-- <div class="col-auto">
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#immoClient">
                 <i class="ti ti-plus"></i>
                 Client
@@ -26,7 +34,7 @@
                 <i class="ti ti-file-type-pdf"></i>
                 PDF
             </a>
-        </div>
+        </div> --}}
 
         <div class="w-100"></div>
 

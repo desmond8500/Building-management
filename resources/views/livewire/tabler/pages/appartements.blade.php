@@ -1,25 +1,136 @@
 <div>
     @component('components.tabler.header', ['title'=>'Appartements', 'subtitle'=>'Immo'])
-        @env('local')
+        {{-- @env('local')
         <button class="btn btn-primary" wire:click="initAppart()">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <line x1="12" y1="5" x2="12" y2="19"></line> <line x1="5" y1="12" x2="19" y2="12"></line> </svg>
             Appartement
         </button>
-        @endenv
+        @endenv --}}
+
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAppart">
+            <i class="ti ti-plus"></i> Ajouter
+        </a>
+        <a class="btn btn-primary" href="{{ route('tabler.appartements_pdf') }}" target="_blank">
+            <i class="ti ti-plus"></i> PDF
+        </a>
     @endcomponent
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row g-2">
+        <div class="col-12 mb-1">
+            <div class="input-icon">
+                <input type="text" class="form-control form-control-rounded" wire:model.live="search" placeholder="Chercher ">
+                <span class="input-icon-addon">
+                    <i class="ti ti-search"></i>
+                </span>
+            </div>
+        </div>
+
+        @foreach ($appartements as $key => $appartement)
+
+            @if ($appart_id == $appartement->id)
+            <div class="row p-3">
+                <div class="form-group col-md-6 mb-3">
+                    <label class="form-label">Nom l'appartement </label>
+                    <input type="text" wire:model.defer="nom" class="form-control" placeholder="Nom de l'appartement">
+                </div>
+                <div class="form-group col-md-2 mb-3">
+                    <label class="form-label">Numéro </label>
+                    <input type="text" wire:model.defer="numero" class="form-control" placeholder="Numéro">
+                </div>
+                <div class="mb-3 form-group col-md-2">
+                    <label class="form-label">Niveau</label>
+                    <select wire:model.defer="niveau" class="form-control">
+                        <option>Sous sol</option>
+                        <option>RDC</option>
+                        <option>Mezzanine</option>
+                        <option>Etage 1</option>
+                        <option>Etage 2</option>
+                        <option>Etage 3</option>
+                        <option>Etage 4</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label class="form-label">Statut </label>
+                    <select wire:model.defer="statut" class="form-control">
+                        <option value="0">Libre</option>
+                        <option value="1">Occupé</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 form-group col-md-12">
+                    <label class="form-label">Adresse</label>
+                    <textarea wire:model.defer="adresse" class="form-control" placeholder="Description" cols="30"
+                        rows="3"></textarea>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-evenly">
+                        <button wire:click="$set('appart_id', 0)" class="btn btn-secondary">Fermer</button>
+                        <button wire:click="delete" class="btn btn-danger">Supprimer</button>
+                        <button wire:click="update" class="btn btn-primary">Modifier</button>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="form-label">Batiment </label>
+                    <select wire:model.defer="batiment_id" class="form-control">
+                        <option value="">-- Select --</option>
+                        @foreach ($batiments as $batiment)
+                        <option value="{{ $batiment->id }}">{{ $batiment->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            @else
+                <div class="col-md-4">
+                    <div class="card p-2">
+                        @if (!$appartement->statut)
+                            <div class="card-status-top bg-danger"></div>
+                        @endif
+                        <div class="row">
+                            <div class="col">
+                                <div class="status bg-primary text-white" style="font-size:13px">@isset($appartement->batiment) {{ $appartement->batiment->name }} / @endisset {{ $appartement->numero }}</div>
+                                <div class="fw-bold" style="font-size:18px">{{ $appartement->nom }} / {{ $appartement->niveau }}</div>
+
+                                <div class="text-italic text-primary">  {{ $appartement->adresse ?? '(Adresse)' }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-outline-primary btn-icon" wire:click="edit('{{ $appartement->id }}')">
+                                    <i class="ti ti-edit"></i>
+                                </button>
+                            </div>
+                            <div class="w-100"></div>
+
+                            <div class="col">
+                                <div>
+                                    {{ $appartement->contrat->client->prenom ?? '(Prénom)' }} {{ strtoupper($appartement->contrat->client->nom) ?? '(Nom)' }}
+                                    {{-- <div class="text-italic">{{ $appartement->contrat->client->ci ?? '(Numéro d\'identité)' }}</div> --}}
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="fw-bold" style="font-size:18px">{{ number_format($appartement->contrat->montant ?? 0, 0, ',', ' ') }} F</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+        @endforeach
+
+        <div class="col-12">
+            <div class="card p-2">
+                {{ $appartements->links() }}
+            </div>
+        </div>
+
+
+
+        {{-- <div class="col-md-12">
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Appartements</h3>
                 <div class="card-actions">
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAppart">
-                        <i class="ti ti-plus"></i> Ajouter
-                    </a>
-                    <a class="btn btn-primary" href="{{ route('tabler.appartements_pdf') }}" target="_blank">
-                        <i class="ti ti-plus"></i> PDF
-                    </a>
+
                 </div>
                 </div>
                 <div class="input-icon">
@@ -130,7 +241,7 @@
                     {{ $appartements->links() }}
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     {{-- Modal ========================================================= --}}
