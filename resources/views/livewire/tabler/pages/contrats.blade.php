@@ -136,13 +136,15 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="row g-2">
-                                    <div class="col">
+                                <div class="row g-2 row-deck">
+                                    <div class="col text-primary fw-bold" style="font-size: 20px">
                                         {{ $contrat->appartement->nom }} <br>
-                                        {{ $contrat->appartement->adresse }}
                                     </div>
                                     <div class="col-auto">
                                         <span style="font-size: 20px">{{ number_format($contrat->montant, 0, ',', ' ') }} F</span>
+                                    </div>
+                                    <div class="col-12">
+                                        {{ $contrat->appartement->adresse }}
                                     </div>
                                 </div>
                             </div>
@@ -150,121 +152,6 @@
                     </div>
                 @endif
         @endforeach
-
-
-{{--
-        <div class="col-md-5">
-            @foreach ($selected as $key => $item)
-                <div class="card p-2 mb-2">
-                    <div class="d-flex justify-content-between">
-                        <div class="card-title">{{ $item['client']['prenom'] }} {{ $item['client']['nom'] }}</div>
-                        <div>
-                            <button class="btn btn-danger" wire:click="remove_contract('{{ $key }}')">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div> --}}
-
-        {{-- <div class="col-md-7">
-            <div class="table-responsive bg-white  mt-2">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Client</th>
-                            <th scope="col">Appartement</th>
-                            <th scope="col">Montant</th>
-                            <th style="width: 10px">Editer</th>
-                            <th style="width: 10px">Contrat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($contrats as $key => $contrat)
-                        @if ($contrat_id == $contrat->id)
-                            <tr class="">
-                                <td colspan="4">
-                                    <div class="row">
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Client</label>
-                                            <select class="form-select" wire:model.defer="client_id">
-                                                <option value="0">Sélectionnez un client</option>
-                                                @foreach ($clients as $client)
-                                                <option value="{{ $client->id }}">{{ $client->prenom }} {{ $client->nom }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Appartement</label>
-                                            <select class="form-select" wire:model.defer="appartement_id">
-                                                <option value="0">Sélectionnez un Appartement</option>
-                                                @foreach ($appartements as $appartement)
-                                                <option value="{{ $appartement->id }}">{{ $appartement->nom }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Montant</label>
-                                            <input type="text" class="form-control" wire:model.defer="montant" placeholder="montant">
-                                        </div>
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Type</label>
-                                            <select class="form-select" wire:model.defer="type">
-                                                <option value="0">Select</option>
-                                                <option value="habitation">Habitation</option>
-                                                <option value="bureau">Bureau</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Date</label>
-                                            <input type="date" class="form-control" wire:model.defer="date" placeholder="Date">
-                                        </div>
-
-                                        <div class="mb-3 col-md-4">
-                                            <label class="form-label">Signature</label>
-                                            <select class="form-select" wire:model.defer="sign1">
-                                                <option value="">Select</option>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="text-end">
-                                            <button type="button" class="btn btn-secondary" wire:click="$set('contrat_id', 0)">Fermer</button>
-                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                                                wire:click="update_contract()">Modifier</button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        @else
-                            <tr class="">
-                                <td scope="row">
-                                    {{ $key+1 }}
-                                </td>
-                                <td scope="row">
-                                    {{ $contrat->client->prenom }} {{ $contrat->client->nom }}
-                                </td>
-                                <td>
-                                    {{ $contrat->appartement->nom }} <br>
-                                    {{ $contrat->appartement->adresse }}
-                                </td>
-                                <td>{{ number_format($contrat->montant, 0, ',', ' ') }} F</td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary rounded" wire:click="edit_contract('{{ $contrat->id }}')">
-                                        <i class="ti ti-edit"></i>    Editer
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-primary rounded" href="{{ route('tabler.contrat_pdf',['contrat_id'=>$contrat->id]) }}" target="_blank">PDF</a>
-                                </td>
-                            </tr>
-                        @endif
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div> --}}
 
 
     </div>
