@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appartement;
+use App\Models\Batiment;
 use App\Models\Client;
 use App\Models\Compteur;
 use App\Models\Contrat;
@@ -31,17 +32,19 @@ class PdfController extends Controller
         return $pdf->stream("Contrat $client->prenom $client->nom _ $appartement->local");
     }
 
-    public function show_all_contrat()
+    public function show_all_contrat($batiment_id=null)
     {
-        $contrats = Contrat::all();
+        if ($batiment_id) {
+            $batiment = Batiment::find($batiment_id);
+            $contrats = $batiment->contrats;
+        } else {
+            $contrats = Contrat::all();
+        }
+
 
         $data = array(
             "contrats" => $contrats,
-            // "appart" => $appartement,
-            // "contrat" => $contrat,
             "annee" => date('Y'),
-            // 'taxe' => $contrat->montant*0.24 + 6000,
-            // 'caution' => $contrat->montant*2,
             'jour' => date('d F Y')
         );
 

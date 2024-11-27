@@ -15,6 +15,7 @@ class Appartement extends Model
     protected $dates = ['deleted_at'];
 
     public $fillable = [
+        'batiment_id',
         'nom',
         'numero',
         'niveau',
@@ -35,11 +36,6 @@ class Appartement extends Model
 
     ];
 
-    /**
-     * Get the compteur associated with the Appartement
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
     public function compteur(): HasOne
     {
         return $this->hasOne(Compteur::class);
