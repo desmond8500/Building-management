@@ -1,23 +1,19 @@
 <?php
 
-use App\Http\Controllers\ContratController;
 use App\Http\Controllers\PdfController;
 use App\Http\Livewire\Material\Index as MaterialIndex;
 use App\Http\Livewire\Tabler\Index;
+use App\Http\Livewire\Tabler\Pages\Appartement;
 use App\Http\Livewire\Tabler\Pages\Appartements;
 use App\Http\Livewire\Tabler\Pages\Batiments;
 use App\Http\Livewire\Tabler\Pages\Client;
 use App\Http\Livewire\Tabler\Pages\Clients;
 use App\Http\Livewire\Tabler\Pages\Compteurs;
+use App\Http\Livewire\Tabler\Pages\Contrat as PagesContrat;
 use App\Http\Livewire\Tabler\Pages\Contrats;
 use App\Http\Livewire\Tabler\Pages\Factures;
 use App\Http\Livewire\Tabler\Pages\Profile;
-use App\Models\Batiment;
-use App\Models\Contrat;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 
 
 Route::get('/', Index::class)->name('index');
@@ -35,7 +31,9 @@ Route::name('tabler.')->group(function () {
     Route::get('/compteurs',            Compteurs::class)->name('compteurs');
     Route::get('/factures',             Factures::class)->name('factures');
     Route::get('/appartements',         Appartements::class)->name('appartements');
+    Route::get('/appartement/{appartement_id}',         Appartement::class)->name('appartement');
     Route::get('/contrats',             Contrats::class)->name('contrats');
+    Route::get('/contrat/{contrat_id}', PagesContrat::class)->name('contrat');
     Route::get('/batiments',            Batiments::class)->name('batiments');
 
     Route::get('contrat_pdf/{contrat_id}',  [PdfController::class, 'show_contrat'])->name('contrat_pdf');

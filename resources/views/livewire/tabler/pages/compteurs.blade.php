@@ -68,20 +68,16 @@
                         @else
                             <div class="row ">
                                 <div class="col">
-                                    <div class="fw-bold">{{ $compteur->appartement->nom }}</div>
+                                    @isset($compteur->appartement)
+                                        <div class="fw-bold">{{ $compteur->appartement->nom }}</div>
+                                    @endisset
                                     <div class="display-6">{{ $compteur->reference }}</div>
                                 </div>
                                 <div class="col-auto">
                                     <div class="text-center">
                                         <div>
                                             <button class="btn btn-outline-primary btn-icon" wire:click="edit('{{ $compteur->id }}')">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                    stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                                    <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                                    <line x1="16" y1="5" x2="19" y2="8" />
-                                                </svg>
+                                                <i class="ti ti-edit"></i>
                                             </button>
                                         </div>
                                         <div class="mt-2">

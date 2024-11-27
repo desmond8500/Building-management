@@ -31,7 +31,7 @@
                         @else
                             <h2>Appartements</h2>
                             @foreach ($batiment->appartements as $appartement)
-                                <button class="btn btn-primary mb-1" >{{ $appartement->nom }}</button>
+                                <a href="{{ route('tabler.appartement',['appartement_id'=>$appartement->id]) }}" class="btn btn-primary mb-1" >{{ $appartement->nom }}</a>
                             @endforeach
                             <hr>
                             <div class="row">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             @foreach ($batiment->contrats as $contrat)
-                                <button class="btn btn-primary mb-1" >{{ $contrat->client->nom }} - {{ $contrat->appartement->nom }}</button>
+                                <a href="{{ route('tabler.contrat',['contrat_id'=>$contrat->id]) }}" class="btn btn-primary mb-1" >{{ $contrat->client->prenom }} - {{ $contrat->client->nom }}</a>
                             @endforeach
                         @endif
 
