@@ -9,6 +9,7 @@ use App\Http\Livewire\Tabler\Pages\Batiments;
 use App\Http\Livewire\Tabler\Pages\Client;
 use App\Http\Livewire\Tabler\Pages\Clients;
 use App\Http\Livewire\Tabler\Pages\Compteurs;
+use App\Http\Livewire\Tabler\Pages\Configurations;
 use App\Http\Livewire\Tabler\Pages\Contrat as PagesContrat;
 use App\Http\Livewire\Tabler\Pages\Contrats;
 use App\Http\Livewire\Tabler\Pages\Factures;
@@ -47,22 +48,7 @@ Route::name('tabler.')->group(function () {
     Route::get('appartements_pdf',          [PdfController::class, 'show_appartements'])->name('appartements_pdf');
     Route::get('appartement_compteurs_pdf', [PdfController::class, 'appartement_compteurs_pdf'])->name('appartement_compteurs_pdf');
 
-    // Route::get('contrat_pdf/{client_id}', function () {
-    //     $data = [
-    //         $home = [
-    //             "address" => "Villa n° 180, Cité HILAL",
-    //             "debut_contrat" => '01 janvier 2023'
-    //         ],
-    //         $client = [
-
-    //         ]
-    //     ];
-
-    //     $pdf = Pdf::loadView('contrats.contrat_pdf', $data);
-
-    //     return $pdf->stream();
-    //     // return $pdf->download('Contrats.pdf');
-    // })->name('contrat_pdf');
+    Route::get('configurations',  Configurations::class)->name('configurations');
 
 });
 
