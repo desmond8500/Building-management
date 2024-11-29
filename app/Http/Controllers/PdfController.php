@@ -7,6 +7,7 @@ use App\Models\Batiment;
 use App\Models\Client;
 use App\Models\Compteur;
 use App\Models\Contrat;
+use App\Models\Settings;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,7 @@ class PdfController extends Controller
             "annee" => date('Y')+1,
             'taxe' => $contrat->montant*0.24 + 6000,
             'caution' => $contrat->montant*2,
+            'date_global' => Settings::where('key', 'date')->first(),
             // 'jour' => date('d F Y')
         );
 
@@ -39,7 +41,8 @@ class PdfController extends Controller
         $data = array(
             "contrats" => $contrats,
             "annee" => date('Y'),
-            'jour' => date('d F Y')
+            'jour' => date('d F Y'),
+            'date_global' => Settings::where('key','date')->first()
         );
 
         $pdf = Pdf::loadView('contrats.all_contrat_pdf', $data);
@@ -58,7 +61,8 @@ class PdfController extends Controller
         $data = array(
             "contrats" => $contrats,
             "annee" => date('Y'),
-            'jour' => date('d F Y')
+            'jour' => date('d F Y'),
+            'date_global' => Settings::where('key','date')->first()
         );
 
         $pdf = Pdf::loadView('contrats.all_contrat_pdf', $data);

@@ -91,9 +91,9 @@ Contrat
 
     <div class="text-right mt-1">Fait à Dakar, le
         @if ($contrat->date)
-        {{ "$ndate[2] $ndate[1] $ndate[0]" }}
+            {{ "$ndate[2] $ndate[1] $ndate[0]" }}
         @else
-        01 janvier {{ $annee }}
+            {{ $date_global->value }}
         @endif
     </div>
 

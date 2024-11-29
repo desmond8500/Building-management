@@ -77,7 +77,17 @@ Contrat
                 En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
             </div>
 
-            <div class="text-right mt-1">Fait à Dakar, le 01 janvier {{ $annee+1 }}</div>
+            <div class="text-right mt-1">Fait à Dakar,
+                @if ($contrat->date)
+
+                @php
+                $ndate = explode("-",$contrat->date);
+                @endphp
+                    {{ "$ndate[2] $ndate[1] $ndate[0]" }}
+                @else
+                    {{ $date_global->value }}
+                @endif
+            </div>
 
             <table class="table table-white mt-2">
                 <tr>
