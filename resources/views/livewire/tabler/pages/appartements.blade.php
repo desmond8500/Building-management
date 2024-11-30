@@ -93,6 +93,7 @@
                                 <div class="fw-bold" style="font-size:18px">{{ $appartement->nom }} / {{ $appartement->niveau }}</div>
 
                                 <div class="text-italic text-primary">  {{ $appartement->adresse ?? '(Adresse)' }}</div>
+
                             </div>
                             <div class="col-auto">
                                 <button class="btn btn-outline-primary btn-icon" wire:click="edit('{{ $appartement->id }}')">

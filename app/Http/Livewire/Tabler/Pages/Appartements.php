@@ -31,6 +31,7 @@ class Appartements extends Component
     public $appart_id = 0;
     public $batiment_id;
     public $nom, $numero, $niveau = 'RDC', $description, $adresse, $statut;
+    public $type;
     public function store_appart()
     {
         ModelsAppartement::create([
@@ -52,6 +53,7 @@ class Appartements extends Component
         $this->niveau = $appart->niveau;
         $this->adresse = $appart->adresse;
         $this->statut = $appart->statut;
+        $this->type = $appart->type;
     }
     public function update()
     {
@@ -62,6 +64,7 @@ class Appartements extends Component
         $appart->niveau = $this->niveau;
         $appart->adresse = $this->adresse;
         $appart->statut = $this->statut;
+        $appart->type = $this->type;
 
         $appart->save();
 

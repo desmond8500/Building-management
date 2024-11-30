@@ -29,14 +29,15 @@
                                 </div>
                             </div>
                         @else
-                            <h2 class="border-bottom pb-2">Appartements</h2>
+
+                            <h2 class="border-bottom pb-2">Appartements ({{ $batiment->appartements->count() }})</h2>
                             @foreach ($batiment->appartements->sortBy('nom') as $appartement)
                                 <a href="{{ route('tabler.appartement',['appartement_id'=>$appartement->id]) }}" class="btn btn-primary mb-1" >{{ $appartement->nom }}</a>
                             @endforeach
 
                             <div class="row mt-3">
                                 <div class="col">
-                                    <h2 class="border-bottom pb-2">Contrats</h2>
+                                    <h2 class="border-bottom pb-2">Contrats ({{ $batiment->contrats->count() }})</h2>
                                 </div>
                                 <div class="col-auto">
                                     <a class="btn btn-primary" href="{{ route('tabler.some_contrats_pdf',['batiment_id'=>$batiment->id]) }}" target="_blank">PDF</a>

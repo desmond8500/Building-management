@@ -153,6 +153,7 @@
                                     </div>
                                     <div class="col-12">
                                         {{ $contrat->appartement->adresse }}
+                                        <div class=" text-primary"> {{ $appartement->type ?? '(Type)' }}</div>
                                     </div>
                                 </div>
                             </div>
