@@ -16,7 +16,7 @@
                             <div class="text-muted">Description</div>
                         </div>
                         <div class="col-auto">
-                            <span class="display-5 fw-bold">{{ $card->count }}</span>
+                            <span class="display-5 ">{{ $card->count }}</span>
                       </div>
                     </div>
                 </div>
