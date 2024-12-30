@@ -1,11 +1,9 @@
 <div>
     @component('components.tabler.header', ['title'=>'Compteurs', 'subtitle'=>'Immo'])
         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompteur">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <line x1="12" y1="5" x2="12" y2="19" /> <line x1="5" y1="12" x2="19" y2="12" /> </svg>
-            Compteur <i class="ti ti-plus"></i>
+             <i class="ti ti-plus"></i> Compteur
         </a>
         <a class="btn btn-primary" target="_blank" href="{{ route('tabler.appartement_compteurs_pdf') }}">
-           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-export" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M14 3v4a1 1 0 0 0 1 1h4"></path> <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3"></path> </svg>
             PDF
         </a>
     @endcomponent
@@ -42,7 +40,7 @@
                                 @error('cpt_number') <span class="text-danger">{{ $message }}</span> @enderror
                                 <div class="mb-3 form-group col-md-12">
                                     <label class="form-label">Type de compteur</label>
-                                    <select wire:model.defer="cpt_type" class="form-control">
+                                    <select wire:model.defer="cpt_type" class="form-select">
                                         <option>EAU</option>
                                         <option>Electricité</option>
                                     </select>
@@ -50,7 +48,7 @@
                                 </div>
                                 <div class="mb-3 form-group col-md-12">
                                     <label class="form-label">Appartement Associé</label>
-                                    <select wire:model.defer="appartement_id" class="form-control">
+                                    <select wire:model.defer="appartement_id" class="form-select">
                                         @foreach ($apparts as $appart)
                                         <option value="{{ $appart->id }}">{{ $appart->nom }}</option>
                                         @endforeach
@@ -58,9 +56,11 @@
                                     @error('appartement_id') <span class="text-danger">{{ $message }}</span> @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="float-right">
-                                        <button wire:click="$set('compteur_id',0)" class="btn btn-secondary">Fermer <i class="ti ti-trash"></i></button>
-                                        <button wire:click="delete" class="btn btn-danger">Supprimer</button>
+                                    <div class="d-flex justify-content-between">
+                                        <button wire:click="$set('compteur_id',0)" class="btn btn-secondary">Fermer </button>
+                                        <button wire:click="delete" class="btn btn-danger btn-icon">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
                                         <button wire:click="update" class="btn btn-primary">Modifier</button>
                                     </div>
                                 </div>

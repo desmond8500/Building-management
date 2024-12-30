@@ -38,11 +38,6 @@ class Compteur extends Model
 
     ];
 
-    /**
-     * Get the appartement that owns the Compteur
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function appartement(): BelongsTo
     {
         return $this->belongsTo(Appartement::class);

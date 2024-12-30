@@ -31,7 +31,7 @@
                     <th>{{ $key+1 }}</th>
                     <td class="text-center">{{ $compteur->type }}</td>
                     <td class="text-center">{{ $compteur->reference }}</td>
-                    <td class="text-center">{{ $compteur->appartement->nom }}</td>
+                    <td class="text-center">{{ $compteur->appartement->nom ?? '-' }}</td>
                 </tr>
             @endforeach
         </tbody>

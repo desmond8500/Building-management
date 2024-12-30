@@ -28,7 +28,7 @@ Contrat
         @if ($contrat->date)
             {{ "$ndate[2] $ndate[1] $ndate[0]" }}
         @else
-            01 janvier {{ $annee }}
+            01 février {{ $annee }}
         @endif
         </b> est usage
         @if ($contrat->type)
