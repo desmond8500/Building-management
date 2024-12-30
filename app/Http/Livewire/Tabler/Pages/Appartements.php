@@ -53,7 +53,7 @@ class Appartements extends Component
         $this->niveau = $appart->niveau;
         $this->adresse = $appart->adresse;
         $this->statut = $appart->statut;
-        $this->type = $appart->type;
+        // $this->type = $appart->type;
     }
     public function update()
     {
@@ -64,7 +64,7 @@ class Appartements extends Component
         $appart->niveau = $this->niveau;
         $appart->adresse = $this->adresse;
         $appart->statut = $this->statut;
-        $appart->type = $this->type;
+        // $appart->type = $this->type;
 
         $appart->save();
 
