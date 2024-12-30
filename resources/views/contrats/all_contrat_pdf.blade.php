@@ -23,12 +23,12 @@ Contrat
             </div>
 
             <div class="text-justify">
-                Cette location qui prendra effet le <b>01 janvier {{ $annee+1 }}</b> est à usage d’habitation. Elle est consentie au prix
+                Cette location qui prendra effet le <b>01 février {{ $annee+1 }}</b> est à usage d’habitation. Elle est consentie au prix
                 de <b>{{ number_format($contrat->montant, 0, ',', ' ') }} francs CFA</b> payable par terme mensuel au plus tard le <b>05 de chaque mois</b>.
             </div>
 
             <div class="text-justify mt-1">
-                A cela il faut ajouter la taxe d’enregistrement (timbres compris) sur location
+                A cela il faut ajouter la taxe d’enregistrement (timbres 6000F) sur location
                 {{-- de <b>{{ number_format($taxe, 0, ',', ' ') }} Francs CFA</b>  --}}
                 à verser à la signature du présent contrat.
             </div>
