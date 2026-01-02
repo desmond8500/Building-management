@@ -83,13 +83,17 @@ Contrat
     </div>
 
     <div class="text-bold text-underline mt-2 mb-0">CAUSE RÉSOLUTOIRE :</div>
-    <div class="text-justify">
+    <div class="text-justify" >
         A défaut de paiement à son échéance d’un seul terme de loyer ou d’inexécution de l’une des conditions
         qui précédent, le présent contrat sera résilié de plein droit trente (30) jours après un simple
         commandement de payer ou de mise en demeure d’exécuter resté sans qu’il soit besoin de remplir
         d’autres formalités judiciaires. Une simple ordonnance de référé autorisant l’expulsion et nonobstant
         toutes offres ou consignes ultérieures et attributions est donnée au président du tribunal statuant en référé
         pour ordonner dans ce cas l’expulsion du locataire.
+        <br>
+        Le locataire s'engage à respecter la tranquillité des autres résidants de l'immeuble et à éviter tout bruit excessif, notamment dans les couloirs et les parties communes, qui pourraient perturber la quiétude des autres occupants.
+        <br>
+        Le locataire s'engage à ne pas utiliser le Bien pour des activités commerciales ou professionnelles qui nécessitent l'accès de la clientèle à la maison. Il est strictement interdit de recevoir des clients ou de faire des affaires au domicile, à l'exception des activités professionnelles à distance qui n'impliquent pas de visites de clients.
         <br>
         En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
     </div>
