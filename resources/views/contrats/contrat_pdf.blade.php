@@ -3,13 +3,13 @@
 @section('title')
 Contrat
 @endsection
+
+@section('content')
 <style>
     div{
         font-size:15px;
     }
 </style>
-
-@section('content')
     <h3 class="text-center">ENGAGEMENT DE LOCATION VERBALE A DURÉE DÉTERMINÉE <br> (01 AN RENOUVELABLE)</h3>
 
     <div class="text-justify">
