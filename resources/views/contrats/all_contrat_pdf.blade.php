@@ -6,6 +6,12 @@ Contrat
 
 @section('content')
 
+<style>
+    div{
+        font-size:15px;
+    }
+</style>
+
     @foreach ($contrats as $contrat)
         @if (!$contrat->fin)
             <h3 class="text-center">ENGAGEMENT DE LOCATION VERBALE A DUREE DETERMINEE <br> (01 AN RENOUVELABLE)</h3>
@@ -66,7 +72,7 @@ Contrat
             </div>
 
             <div class="text-bold text-underline mt-2 mb-0">CAUSE RESOLUTOIRE :</div>
-            <div class="text-justify" style="font-size:15px;">
+            <div class="text-justify" >
                 A défaut de paiement à son échéance d’un seul terme de loyer ou d’inexécution de l’une des conditions
                 qui précédent, le présent contrat sera résilié de plein droit trente (30) jours après un simple
                 commandement de payer ou de mise en demeure d’exécuter resté sans qu’il soit besoin de remplir
