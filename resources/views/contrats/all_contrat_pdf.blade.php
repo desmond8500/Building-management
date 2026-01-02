@@ -74,6 +74,10 @@ Contrat
                 toutes offres ou consignes ultérieures et attributions est donnée au président du tribunal statuant en référé
                 pour ordonner dans ce cas l’expulsion du locataire.
                 <br>
+                Le locataire s'engage à respecter la tranquillité des autres résidants de l'immeuble et à éviter tout bruit excessif, notamment dans les couloirs et les parties communes, qui pourraient perturber la quiétude des autres occupants.
+                <br>
+                Le locataire s'engage à ne pas utiliser le Bien pour des activités commerciales ou professionnelles qui nécessitent l'accès de la clientèle à la maison. Il est strictement interdit de recevoir des clients ou de faire des affaires au domicile, à l'exception des activités professionnelles à distance qui n'impliquent pas de visites de clients.
+                <br>
                 En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.
             </div>
 
