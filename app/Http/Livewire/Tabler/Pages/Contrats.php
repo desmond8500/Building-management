@@ -94,7 +94,7 @@ class Contrats extends Component
 
             return Contrat::where('client_id', $client->id)->get() ;
         } else {
-            return Contrat::paginate(10) ;
+            return Contrat::get();
         }
 
     }
