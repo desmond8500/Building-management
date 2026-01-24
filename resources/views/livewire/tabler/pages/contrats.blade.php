@@ -57,6 +57,9 @@
     @endcomponent
 
     <div class="row g-2">
+        <div class="col-md-12">
+            <input type="text" wire:model="search" class="form-control" placeholder="Rechercher un contrat par client ou appartement...">
+        </div>
         @foreach ($contrats as $key => $contrat)
 
                 @if ($contrat_id == $contrat->id)
@@ -134,7 +137,7 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title">{{ $contrat->client->prenom }} {{ $contrat->client->nom }}</div>
+                                <div class="card-title">{{ $contrat->client->prenom }} {{ ucfirst($contrat->client->nom) }}</div>
                                 <div class="card-actions">
                                     <a class="btn btn-icon btn-primary " wire:click="edit_contract('{{ $contrat->id }}')">
                                         <i class="ti ti-edit"></i>

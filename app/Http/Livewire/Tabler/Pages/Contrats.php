@@ -13,6 +13,7 @@ class Contrats extends Component
     public $contrat_id, $selected = array();
     public $debut;
     public $fin;
+    public $search = '';
 
     public function render()
     {
@@ -88,6 +89,13 @@ class Contrats extends Component
 
     public function getContract()
     {
-        return Contrat::all();
+        if ($this->search) {
+            $client  = Client::where('nom', 'like', '%' . $this->search . '%')->orWhere('prenom', 'like', '%' . $this->search . '%')->first();
+
+            return Contrat::where('client_id', $client->id)->get() ;
+        } else {
+            return Contrat::paginate(10) ;
+        }
+
     }
 }
