@@ -17,6 +17,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $prenom
  * @property string $nom
  * @property string $genre
+ * @property string $ci
+ * @property string $delivre
+ * @property string $statut
  */
 class Client extends Model
 {
@@ -49,12 +52,9 @@ class Client extends Model
 
     ];
 
-
     public function contrat(): HasOne
     {
         return $this->hasOne(Contrat::class);
     }
-
-
 
 }

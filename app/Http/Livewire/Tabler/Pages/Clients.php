@@ -23,7 +23,8 @@ class Clients extends Component
         return view('livewire.tabler.pages.clients', [
             'clients' => Client::where('prenom', 'like', '%' . $this->search . '%')
                     ->orWhere('nom', 'like', '%' . $this->search . '%')
-                    ->paginate(10),
+                    ->orderBy('nom', 'asc')
+                    ->paginate(12),
         ])->extends('app.layout')->section('content');
     }
 

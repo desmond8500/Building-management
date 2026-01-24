@@ -11,7 +11,7 @@
 
 <table class="table  mt-2">
     <thead>
-        <tr>
+        <tr style="background: blueviolet; color:white;">
             <th>#</th>
             <th>Prénom et Nom</th>
             <th>Identification</th>
@@ -31,11 +31,11 @@
             </td>
             <td>
                 <div class="">{{ $client->ci ?? '(Numéro d\'identité)'}}</div>
-                <div class="text-italic">{{ $client->delivre ?? '(Date de délivrance)'}}</div>
+                <div class="text-italic" style="color: gray">{{ $client->delivre ?? '(Date de délivrance)'}}</div>
             </td>
             <td>
                 <div>{{ $client->contrat->appartement->nom ?? '(Nom Local)'}}</div>
-                <div>{{ $client->contrat->appartement->adresse ?? '(Adresse du local)'}}</div>
+                <div style="color: gray">{{ $client->contrat->appartement->adresse ?? '(Adresse du local)'}}</div>
             </td>
             <td class="text-right">
                 {{ number_format($client->contrat->montant ?? 0, 0, ',', ' ') }} F

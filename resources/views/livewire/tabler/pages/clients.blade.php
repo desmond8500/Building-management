@@ -25,23 +25,13 @@
                 </span>
             </div>
         </div>
-        {{-- <div class="col-auto">
-            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#immoClient">
-                <i class="ti ti-plus"></i>
-                Client
-            </a>
-            <a class="btn btn-primary" href="{{ route('tabler.clients_pdf') }}" target="_blank">
-                <i class="ti ti-file-type-pdf"></i>
-                PDF
-            </a>
-        </div> --}}
 
         <div class="w-100"></div>
 
         @foreach ($clients as $key => $client)
             @if ($client_id == $client->id)
                 <div class="col-md-6">
-                    <div class="card card-body">
+                    <div class="card card-body ">
                         <div class="row p-2">
                             <div class="form-group col-md-5 mb-3">
                                 <label class="form-label">Prénom du client </label>
@@ -54,8 +44,8 @@
                             <div class="col-md-2 mb-3">
                                 <label class="form-label">Statut</label>
                                 <select wire:model.defer="statut" class="form-control">
-                                    <option value="0">Libre</option>
-                                    <option value="1">Occupé</option>
+                                    <option value="0">Parti</option>
+                                    <option value="1">Résident</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4 mb-3">
@@ -95,6 +85,11 @@
                             <div class="card-status-top bg-danger"></div>
                         @endif
                         <div class="row">
+                            <div class="col-auto">
+                                <span class="btn btn-icon" >
+                                    <i class="ti ti-user"></i>
+                                </span>
+                            </div>
                             <div class="col">
                                 <div wire:click="gotoClient('{{ $client->id }}')" type="button">
                                     <div class="fw-bold">{{ ucfirst($client->prenom) }} {{ strtoupper($client->nom) }}</div>
@@ -109,7 +104,7 @@
                             <div class="w-100 border"></div>
                             <div class="col">
                                 <div><b>ID:</b> {{ $client->ci ?? '(Numéro D\'identité)'}}</div>
-                                <div><b>Delivrance:</b>{{ $client->delivre ?? '(Date de délivrance)'}}</div>
+                                <div><b>Delivrance:</b> {{ $client->delivre ?? '(Date de délivrance)'}}</div>
                                 <div>{{ $client->contrat->appartement->nom ?? '(Nom Local)'}} - {{ $client->contrat->appartement->adresse ?? '(Adresse du local)'}}</div>
                             </div>
                             <div class="col-auto">

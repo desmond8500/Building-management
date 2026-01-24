@@ -11,7 +11,7 @@
             <i class="ti ti-plus"></i> Ajouter
         </a>
         <a class="btn btn-primary" href="{{ route('tabler.appartements_pdf') }}" target="_blank">
-            <i class="ti ti-plus"></i> PDF
+            <i class="ti ti-file-type-pdf"></i> PDF
         </a>
     @endcomponent
 

@@ -85,7 +85,10 @@ class PdfController extends Controller
 
     public function show_appartements()
     {
-        $appartements = Appartement::where('statut', 1)->get();
+        $appartements = Appartement::where('statut', 1)
+            ->orderBy('batiment_id', 'asc')
+            ->orderBy('numero', 'asc')
+            ->get();
 
         $data = array(
             "appartements" => $appartements,
