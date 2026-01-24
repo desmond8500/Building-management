@@ -137,7 +137,11 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-title">{{ $contrat->client->prenom }} {{ ucfirst($contrat->client->nom) }}</div>
+                                @if ($contrat->client->statut)
+                                    <div class="card-title ">{{ ucfirst($contrat->client->prenom) }} {{ strtoupper(ucfirst($contrat->client->nom)) }}</div>
+                                @else
+                                    <div class="card-title text-danger ">{{ ucfirst($contrat->client->prenom) }} {{ strtoupper(ucfirst($contrat->client->nom)) }}</div>
+                                @endif
                                 <div class="card-actions">
                                     <a class="btn btn-icon btn-primary " wire:click="edit_contract('{{ $contrat->id }}')">
                                         <i class="ti ti-edit"></i>
@@ -155,8 +159,8 @@
                                         <span style="font-size: 20px">{{ number_format($contrat->montant, 0, ',', ' ') }} F</span>
                                     </div>
                                     <div class="col-12">
-                                        {{ $contrat->appartement->adresse }}
-                                        <div class=" text-primary"> {{ $appartement->type ?? '(Type)' }}</div>
+                                        <span class="me-1">{{ $contrat->appartement->adresse }}</span>
+                                        <span class=" text-primary"> {{ $appartement->type ?? '(Type)' }}</span>
                                     </div>
                                 </div>
                             </div>

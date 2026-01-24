@@ -46,7 +46,6 @@ class PdfController extends Controller
         );
 
         $pdf = Pdf::loadView('contrats.all_contrat_pdf', $data);
-
         return $pdf->stream("Contrats");
     }
     public static function some_contrats_pdf($batiment_id)
@@ -93,7 +92,6 @@ class PdfController extends Controller
         $data = array(
             "appartements" => $appartements,
         );
-
         $pdf = Pdf::loadView('appartements.appartements_pdf', $data);
 
         return $pdf->stream('Liste des appartements');
@@ -108,7 +106,6 @@ class PdfController extends Controller
         );
 
         $pdf = Pdf::loadView('_pdf.appartement_compteurs_pdf', $data);
-
         return $pdf->stream('Liste des compteurs');
     }
 
