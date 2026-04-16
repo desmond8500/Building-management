@@ -34,5 +34,6 @@ class Configurations extends Component
     function init(){
         Settings::firstOrCreate([ 'key' => 'date', 'value' => 2025 ]);
         Settings::firstOrCreate([ 'key' => 'name', 'value' => 2025 ]);
+        Settings::firstOrCreate([ 'key' => 'start_date', 'value' => "15 avril 2025" ]);
     }
 }
